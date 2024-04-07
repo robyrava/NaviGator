@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NaviGator")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+28a3e7a0943d686ac4c0cb4d5700ed59c30cd31e")]
 [assembly: System.Reflection.AssemblyProductAttribute("NaviGator")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NaviGator")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

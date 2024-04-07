@@ -10,7 +10,7 @@ namespace Dominio
     
         public List<Prenotazione> ListaPrenotazioni {get; private set;}
     
-        public Prenotazione PrenotazioneInCorso {get; private set;} 
+        public Prenotazione? PrenotazioneInCorso {get; private set;} 
     
         private int counter;
     
@@ -34,24 +34,17 @@ namespace Dominio
     
         public void CaricaCabine()
         {
-            Cabina c1 = new Cabina("1", "interna", 1.1f);
+            Cabina c1 = new Cabina("1", "interna", 600);
             ListaCabine.Add(c1);
-            Cabina c2 = new Cabina("2", "oblo", 1.2f);
+            Cabina c2 = new Cabina("2", "oblo", 700);
             ListaCabine.Add(c2);
-            Cabina c3 = new Cabina("3", "suite", 2.1f);
+            Cabina c3 = new Cabina("3", "suite", 1000);
             ListaCabine.Add(c3);
         }
     
         public List<Cabina> VisualizzaCabine(string tipologia, DateTime dataInizio, DateTime dataFine)
         {
-            /** LA CORRETEZZA DELLE DATE VA GESTITA NELLA GUI 
-
-            if (dataInizio.Equals(dataFine) || dataInizio > dataFine)
-            {
-                return new List<Cabina>();
-            }
-            */
-
+            
             List<Cabina> cabineDisponibili = new List<Cabina>();
 
             foreach (Cabina c in ListaCabine)
@@ -131,9 +124,13 @@ namespace Dominio
 
         public void RegistraPrenotazione(DateTime dataInizio, DateTime dataFine)
         {
-            if (PrenotazioneInCorso == null || PrenotazioneInCorso.Cliente == null)
+            if (PrenotazioneInCorso == null)
             {
-                throw new InvalidOperationException("Non c'è nessuna prenotazione in corso.");
+                throw new InvalidOperationException("Errore: devi prima registrare la cabina!\n");
+            }
+            if (PrenotazioneInCorso.Cliente == null)
+            {
+                throw new InvalidOperationException("Errore: devi prima registrare il cliente!\n");
             }
             
             PrenotazioneInCorso.DataInizio = dataInizio;

@@ -4,9 +4,9 @@ namespace Dominio
     {
         public string Nome { get; private set; }
         public string Cognome { get; private set; }
-        public string NumeroTelefono { get; private set; }
         public string CodiceFiscale { get; private set; }        
         public string Documento { get; private set; }
+        public string NumeroTelefono { get; private set; }
         public string NumeroCarta { get; private set; }
 
         public Cliente(string nome, string cognome, string numeroTelefono, string codiceFiscale, string documento, string numeroCarta)

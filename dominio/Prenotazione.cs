@@ -8,12 +8,12 @@ namespace Dominio
         public Cabina? Cabina { get; set; }
         public Cliente? Cliente { get; set; }
 
-        public Prenotazione(){}
         public Prenotazione(string codice)
         {
             Codice = codice;
         }
 
+/**
         public Prenotazione(string codice, DateTime dataInizio, DateTime dataFine, Cabina cabina, Cliente cliente)
         {
             Codice = codice;
@@ -22,14 +22,14 @@ namespace Dominio
             Cabina = cabina;
             Cliente = cliente;
         }
-
+*/
         public bool IsDisponibile(string codiceCabina, DateTime dataInizio, DateTime dataFine)
         {
             if (dataInizio > dataFine || dataInizio == dataFine)
             {
                 return false;
             }
-            if (Cabina.Codice.Equals(codiceCabina))
+            if (Cabina != null && Cabina.Codice.Equals(codiceCabina))
             {
                 if ((dataInizio > this.DataInizio && dataInizio < this.DataFine) ||
                     (dataFine > this.DataInizio && dataFine < this.DataFine) ||

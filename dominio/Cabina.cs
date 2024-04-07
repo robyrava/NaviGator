@@ -4,9 +4,9 @@ namespace Dominio
     {
         public string Codice { get; private set; }
         public string Tipo { get; private set; }
-        public float Prezzo { get; private set; }
+        public double Prezzo { get; private set; }
 
-        public Cabina(string codice, string tipo, float prezzo)
+        public Cabina(string codice, string tipo, double prezzo)
         {
             Codice = codice;
             Tipo = tipo;

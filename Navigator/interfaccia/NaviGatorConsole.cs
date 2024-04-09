@@ -18,7 +18,7 @@ namespace Interfaccia{
                 comando = Parser.GetInstance().GetComando(ElencoComandi.NAVIGATOR);
             }
             comando.Esegui(NaviGator);
-            Console.WriteLine("   BYE...");
+            Console.WriteLine("   Grazie per aver utilizzato NaviGator");
         }
 
         public void Visualizza()

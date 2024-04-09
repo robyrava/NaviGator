@@ -17,7 +17,6 @@ namespace Interfaccia
                 comando = Parser.GetInstance().GetComando(ElencoComandi.NUOVA_PRENOTAZIONE);
             }
             comando.Esegui(istanza); // sicuramente è il comando esci
-            Console.WriteLine("   BYE...");
         }
 
         public void Visualizza()

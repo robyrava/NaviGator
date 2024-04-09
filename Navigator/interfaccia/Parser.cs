@@ -44,6 +44,8 @@ namespace Interfaccia
                         comando = new ComandoRegistraCliente();
                     if (parola.Equals("3"))
                         comando = new ComandoRegistraPrenotazione();
+                    if (parola.Equals("4"))
+                        comando = new ComandoAnnullaPrenotazioneInCorso();
                     /**
                     if (parola.Equals("2"))
                         comando = new ComandoRegistraPacchetto();

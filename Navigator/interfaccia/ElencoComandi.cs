@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Text;
 
 namespace Interfaccia
@@ -7,66 +8,51 @@ namespace Interfaccia
         public const int NAVIGATOR = 0;
         public const int NUOVA_PRENOTAZIONE = 1;
 
-        private static readonly string[][] comandiValidiNaviGatorConsole = {
-            new string[] {ComandoNuovaPrenotazione.CodiceComando, ComandoNuovaPrenotazione.DescrizioneComando},
-            new string[] {ComandoEsci.CodiceComando, ComandoEsci.DescrizioneComando}
+        private static readonly Dictionary<string, string> comandiValidiNaviGatorConsole = new Dictionary<string, string>
+        {
+            { ComandoNuovaPrenotazione.CodiceComando, ComandoNuovaPrenotazione.DescrizioneComando },
+            { ComandoEsci.CodiceComando, ComandoEsci.DescrizioneComando }
         };
 
-        private static readonly string[][] comandiValidiNuovaPrenotazioneConsole = {
-            new string[] {ComandoRegistraCabina.CodiceComando, ComandoRegistraCabina.DescrizioneComando},
-            //new string[] {ComandoRegistraPacchetto.CodiceComando, ComandoRegistraPacchetto.DescrizioneComando},
-            new string[] {ComandoRegistraCliente.CodiceComando, ComandoRegistraCliente.DescrizioneComando},
-            new string[] {ComandoRegistraPrenotazione.CodiceComando, ComandoRegistraPrenotazione.DescrizioneComando},
-            new string[] {ComandoEsci.CodiceComando, ComandoEsci.DescrizioneComando}
+        private static readonly Dictionary<string, string> comandiValidiNuovaPrenotazioneConsole = new Dictionary<string, string>
+        {
+            { ComandoRegistraCabina.CodiceComando, ComandoRegistraCabina.DescrizioneComando },
+            { ComandoRegistraCliente.CodiceComando, ComandoRegistraCliente.DescrizioneComando },
+            { ComandoRegistraPrenotazione.CodiceComando, ComandoRegistraPrenotazione.DescrizioneComando },
+            { ComandoAnnullaPrenotazioneInCorso.CodiceComando, ComandoAnnullaPrenotazioneInCorso.DescrizioneComando},
+            { ComandoEsci.CodiceComando, ComandoEsci.DescrizioneComando }
         };
-
 
         public static string ElencoTuttiComandi(int console)
         {
             StringBuilder elenco = new StringBuilder();
-            string[][] comandi = GetComandi(console);
+            Dictionary<string, string> comandi = GetComandi(console);
 
-            for (int i = 0; i < comandi.Length - 1; i++)
+            foreach (var comando in comandi)
             {
-                elenco.AppendLine(Comando(i, console));
+                elenco.AppendLine($" {comando.Key}){comando.Value}");
             }
-            elenco.Append(Comando(comandi.Length - 1, console));
+
             return elenco.ToString();
         }
 
-        private static string Comando(int i, int console)
+        public static Dictionary<string, string> GetComandi(int console)
         {
-            string[][] comandi = GetComandi(console);
-            return " " + comandi[i][0] + ")" + comandi[i][1];
-        }
-
-        public static string[][] GetComandi(int console)
-        {
-            string[][]? comandi = null;
-
             switch (console)
             {
                 case NAVIGATOR:
-                    comandi = comandiValidiNaviGatorConsole;
-                    break;
+                    return comandiValidiNaviGatorConsole;
                 case NUOVA_PRENOTAZIONE:
-                    comandi = comandiValidiNuovaPrenotazioneConsole;
-                    break;
+                    return comandiValidiNuovaPrenotazioneConsole;
+                default:
+                    return new Dictionary<string, string>();
             };
-            return comandi;
         }
 
         public bool ComandoValido(string stringa, int console)
         {
-            string[][] comandi = GetComandi(console);
-            for (int i = 0; i < comandi.Length; i++)
-            {
-                if (comandi[i][0].Equals(stringa))
-                    return true;
-            }
-            return false;
+            Dictionary<string, string> comandi = GetComandi(console);
+            return comandi.ContainsKey(stringa);
         }
     }
-
-
 }

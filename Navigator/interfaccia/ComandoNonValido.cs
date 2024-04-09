@@ -19,7 +19,7 @@ namespace Interfaccia
 
         public void Esegui(NaviGator istanza)
         {
-            Console.WriteLine("   COMANDO INESISTENTE");
+            Console.WriteLine("   Comando non valido, riprovare");
         }
     }
 }

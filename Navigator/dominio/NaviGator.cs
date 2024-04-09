@@ -149,6 +149,14 @@ namespace Dominio
             counter++;
         }
 
+        public bool AnnullaPrenotazioneInCorso()
+        {
+            if(prenotazioneInCorso == null)
+                return false;
+            
+            prenotazioneInCorso = null;
+            return true;
+        }
         
        
     }

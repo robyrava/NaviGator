@@ -1,0 +1,45 @@
+C:\Users\rober\OneDrive\Desktop\NaviGator\obj\Debug\net8.0\NaviGator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rober\OneDrive\Desktop\NaviGator\obj\Debug\net8.0\NaviGator.AssemblyInfoInputs.cache
+C:\Users\rober\OneDrive\Desktop\NaviGator\obj\Debug\net8.0\NaviGator.AssemblyInfo.cs
+C:\Users\rober\OneDrive\Desktop\NaviGator\obj\Debug\net8.0\NaviGator.csproj.CoreCompileInputs.cache
+C:\Users\rober\OneDrive\Desktop\NaviGator\bin\Debug\net8.0\NaviGator.exe
+C:\Users\rober\OneDrive\Desktop\NaviGator\bin\Debug\net8.0\NaviGator.deps.json
+C:\Users\rober\OneDrive\Desktop\NaviGator\bin\Debug\net8.0\NaviGator.runtimeconfig.json
+C:\Users\rober\OneDrive\Desktop\NaviGator\bin\Debug\net8.0\NaviGator.dll
+C:\Users\rober\OneDrive\Desktop\NaviGator\bin\Debug\net8.0\NaviGator.pdb
+C:\Users\rober\OneDrive\Desktop\NaviGator\obj\Debug\net8.0\NaviGator.dll
+C:\Users\rober\OneDrive\Desktop\NaviGator\obj\Debug\net8.0\refint\NaviGator.dll
+C:\Users\rober\OneDrive\Desktop\NaviGator\obj\Debug\net8.0\NaviGator.pdb
+C:\Users\rober\OneDrive\Desktop\NaviGator\obj\Debug\net8.0\NaviGator.genruntimeconfig.cache
+C:\Users\rober\OneDrive\Desktop\NaviGator\obj\Debug\net8.0\ref\NaviGator.dll
+C:\Users\rober\OneDrive\Desktop\NaviGator\obj\Debug\net8.0\NaviGator.sourcelink.json
+C:\Users\rober\OneDrive\Desktop\Prog. Ing. Software\NaviGator\bin\Debug\net8.0\NaviGator.exe
+C:\Users\rober\OneDrive\Desktop\Prog. Ing. Software\NaviGator\bin\Debug\net8.0\NaviGator.deps.json
+C:\Users\rober\OneDrive\Desktop\Prog. Ing. Software\NaviGator\bin\Debug\net8.0\NaviGator.runtimeconfig.json
+C:\Users\rober\OneDrive\Desktop\Prog. Ing. Software\NaviGator\bin\Debug\net8.0\NaviGator.dll
+C:\Users\rober\OneDrive\Desktop\Prog. Ing. Software\NaviGator\bin\Debug\net8.0\NaviGator.pdb
+C:\Users\rober\OneDrive\Desktop\Prog. Ing. Software\NaviGator\obj\Debug\net8.0\NaviGator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rober\OneDrive\Desktop\Prog. Ing. Software\NaviGator\obj\Debug\net8.0\NaviGator.AssemblyInfoInputs.cache
+C:\Users\rober\OneDrive\Desktop\Prog. Ing. Software\NaviGator\obj\Debug\net8.0\NaviGator.AssemblyInfo.cs
+C:\Users\rober\OneDrive\Desktop\Prog. Ing. Software\NaviGator\obj\Debug\net8.0\NaviGator.csproj.CoreCompileInputs.cache
+C:\Users\rober\OneDrive\Desktop\Prog. Ing. Software\NaviGator\obj\Debug\net8.0\NaviGator.sourcelink.json
+C:\Users\rober\OneDrive\Desktop\Prog. Ing. Software\NaviGator\obj\Debug\net8.0\NaviGator.dll
+C:\Users\rober\OneDrive\Desktop\Prog. Ing. Software\NaviGator\obj\Debug\net8.0\refint\NaviGator.dll
+C:\Users\rober\OneDrive\Desktop\Prog. Ing. Software\NaviGator\obj\Debug\net8.0\NaviGator.pdb
+C:\Users\rober\OneDrive\Desktop\Prog. Ing. Software\NaviGator\obj\Debug\net8.0\NaviGator.genruntimeconfig.cache
+C:\Users\rober\OneDrive\Desktop\Prog. Ing. Software\NaviGator\obj\Debug\net8.0\ref\NaviGator.dll
+C:\Users\rober\OneDrive\Desktop\NaviGator\NaviGator\bin\Debug\net8.0\NaviGator.exe
+C:\Users\rober\OneDrive\Desktop\NaviGator\NaviGator\bin\Debug\net8.0\NaviGator.deps.json
+C:\Users\rober\OneDrive\Desktop\NaviGator\NaviGator\bin\Debug\net8.0\NaviGator.runtimeconfig.json
+C:\Users\rober\OneDrive\Desktop\NaviGator\NaviGator\bin\Debug\net8.0\NaviGator.dll
+C:\Users\rober\OneDrive\Desktop\NaviGator\NaviGator\bin\Debug\net8.0\NaviGator.pdb
+C:\Users\rober\OneDrive\Desktop\NaviGator\NaviGator\obj\Debug\net8.0\NaviGator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rober\OneDrive\Desktop\NaviGator\NaviGator\obj\Debug\net8.0\NaviGator.AssemblyInfoInputs.cache
+C:\Users\rober\OneDrive\Desktop\NaviGator\NaviGator\obj\Debug\net8.0\NaviGator.AssemblyInfo.cs
+C:\Users\rober\OneDrive\Desktop\NaviGator\NaviGator\obj\Debug\net8.0\NaviGator.csproj.CoreCompileInputs.cache
+C:\Users\rober\OneDrive\Desktop\NaviGator\NaviGator\obj\Debug\net8.0\NaviGator.sourcelink.json
+C:\Users\rober\OneDrive\Desktop\NaviGator\NaviGator\obj\Debug\net8.0\NaviGator.dll
+C:\Users\rober\OneDrive\Desktop\NaviGator\NaviGator\obj\Debug\net8.0\refint\NaviGator.dll
+C:\Users\rober\OneDrive\Desktop\NaviGator\NaviGator\obj\Debug\net8.0\NaviGator.pdb
+C:\Users\rober\OneDrive\Desktop\NaviGator\NaviGator\obj\Debug\net8.0\NaviGator.genruntimeconfig.cache
+C:\Users\rober\OneDrive\Desktop\NaviGator\NaviGator\obj\Debug\net8.0\ref\NaviGator.dll

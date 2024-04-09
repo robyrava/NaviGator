@@ -1,0 +1,101 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\rober\\OneDrive\\Desktop\\Prog. Ing. Software\\NaviGator\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{449335D3-B710-4F5E-B1BF-E2AE510101B1}|NaviGator.csproj|c:\\users\\rober\\onedrive\\desktop\\prog. ing. software\\navigator\\dominio\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{449335D3-B710-4F5E-B1BF-E2AE510101B1}|NaviGator.csproj|solutionrelative:dominio\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{449335D3-B710-4F5E-B1BF-E2AE510101B1}|NaviGator.csproj|c:\\users\\rober\\onedrive\\desktop\\prog. ing. software\\navigator\\dominio\\prenotazione.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{449335D3-B710-4F5E-B1BF-E2AE510101B1}|NaviGator.csproj|solutionrelative:dominio\\prenotazione.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{449335D3-B710-4F5E-B1BF-E2AE510101B1}|NaviGator.csproj|c:\\users\\rober\\onedrive\\desktop\\prog. ing. software\\navigator\\dominio\\cabina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{449335D3-B710-4F5E-B1BF-E2AE510101B1}|NaviGator.csproj|solutionrelative:dominio\\cabina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{449335D3-B710-4F5E-B1BF-E2AE510101B1}|NaviGator.csproj|c:\\users\\rober\\onedrive\\desktop\\prog. ing. software\\navigator\\dominio\\navigator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{449335D3-B710-4F5E-B1BF-E2AE510101B1}|NaviGator.csproj|solutionrelative:dominio\\navigator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "NaviGator.cs",
+              "DocumentMoniker": "C:\\Users\\rober\\OneDrive\\Desktop\\Prog. Ing. Software\\NaviGator\\dominio\\NaviGator.cs",
+              "RelativeDocumentMoniker": "dominio\\NaviGator.cs",
+              "ToolTip": "C:\\Users\\rober\\OneDrive\\Desktop\\Prog. Ing. Software\\NaviGator\\dominio\\NaviGator.cs",
+              "RelativeToolTip": "dominio\\NaviGator.cs",
+              "ViewState": "AQIAAHgAAAAAAAAAAAAiwHcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-08T17:42:35.282Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Prenotazione.cs",
+              "DocumentMoniker": "C:\\Users\\rober\\OneDrive\\Desktop\\Prog. Ing. Software\\NaviGator\\dominio\\Prenotazione.cs",
+              "RelativeDocumentMoniker": "dominio\\Prenotazione.cs",
+              "ToolTip": "C:\\Users\\rober\\OneDrive\\Desktop\\Prog. Ing. Software\\NaviGator\\dominio\\Prenotazione.cs",
+              "RelativeToolTip": "dominio\\Prenotazione.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-09T10:09:39.752Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Cliente.cs",
+              "DocumentMoniker": "C:\\Users\\rober\\OneDrive\\Desktop\\Prog. Ing. Software\\NaviGator\\dominio\\Cliente.cs",
+              "RelativeDocumentMoniker": "dominio\\Cliente.cs",
+              "ToolTip": "C:\\Users\\rober\\OneDrive\\Desktop\\Prog. Ing. Software\\NaviGator\\dominio\\Cliente.cs",
+              "RelativeToolTip": "dominio\\Cliente.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAA7wBUAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-09T10:09:35.494Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Cabina.cs",
+              "DocumentMoniker": "C:\\Users\\rober\\OneDrive\\Desktop\\Prog. Ing. Software\\NaviGator\\dominio\\Cabina.cs",
+              "RelativeDocumentMoniker": "dominio\\Cabina.cs",
+              "ToolTip": "C:\\Users\\rober\\OneDrive\\Desktop\\Prog. Ing. Software\\NaviGator\\dominio\\Cabina.cs",
+              "RelativeToolTip": "dominio\\Cabina.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-09T10:09:34.385Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

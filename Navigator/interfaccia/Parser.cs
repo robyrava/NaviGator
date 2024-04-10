@@ -33,7 +33,21 @@ namespace Interfaccia
                 if (console == ElencoComandi.NAVIGATOR)
                 {
                     if (parola.Equals("1"))
+                        comando = new ComandoTourOperator();
+                    /**
+                    if (parola.Equals("2"))
+                        comando = new ComandoReceptionist();
+                    if (parola.Equals("3"))
+                        comando = new ComandoAdmin();
+                    */
+                }
+
+                if (console == ElencoComandi.TOUR_OPERATOR)
+                {
+                    if (parola.Equals("1"))
                         comando = new ComandoNuovaPrenotazione();
+                    if (parola.Equals("2"))
+                        comando = new ComandoEliminaPrenotazione();                    
                 }
 
                 if (console == ElencoComandi.NUOVA_PRENOTAZIONE)
@@ -46,10 +60,6 @@ namespace Interfaccia
                         comando = new ComandoRegistraPrenotazione();
                     if (parola.Equals("4"))
                         comando = new ComandoAnnullaPrenotazioneInCorso();
-                    /**
-                    if (parola.Equals("2"))
-                        comando = new ComandoRegistraPacchetto();
-                    */
                 }
 
                 if (parola.Equals("0"))

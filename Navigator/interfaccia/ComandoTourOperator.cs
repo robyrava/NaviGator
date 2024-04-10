@@ -2,10 +2,10 @@ using Dominio;
 
 namespace Interfaccia
 {
-    public class ComandoNuovaPrenotazione : IComando
+    public class ComandoTourOperator : IComando
     {
         public static readonly string CodiceComando = "1" ;
-        public static readonly string DescrizioneComando = "Inserisci nuova prenotazione";
+        public static readonly string DescrizioneComando = "Tour Operator";
 
         public string GetCodiceComando()
         {
@@ -19,8 +19,8 @@ namespace Interfaccia
 
         public void Esegui(NaviGator istanza)
         {
-            NuovaPrenotazioneConsole npc = new NuovaPrenotazioneConsole();
-            npc.Start(istanza);
+            TourOperatorConsole to = new TourOperatorConsole();
+            to.Start(istanza);
         }
     }
 

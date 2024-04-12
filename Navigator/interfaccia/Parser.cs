@@ -34,9 +34,9 @@ namespace Interfaccia
                 {
                     if (parola.Equals("1"))
                         comando = new ComandoTourOperator();
-                    /**
                     if (parola.Equals("2"))
                         comando = new ComandoReceptionist();
+                    /**
                     if (parola.Equals("3"))
                         comando = new ComandoAdmin();
                     */
@@ -60,6 +60,20 @@ namespace Interfaccia
                         comando = new ComandoRegistraPrenotazione();
                     if (parola.Equals("4"))
                         comando = new ComandoAnnullaPrenotazioneInCorso();
+                }
+
+                if(console == ElencoComandi.RECEPTIONIST)
+                {
+                    if(parola.Equals("1"))
+                        comando = new ComandoServizioCabina();
+                }
+
+                if(console == ElencoComandi.SERVIZIO_CABINA)
+                {
+                    if(parola.Equals("1"))
+                        comando = new ComandoAssociaServizioCabina();
+                    if(parola.Equals("2"))
+                        comando = new ComandoSelezionaPortate();
                 }
 
                 if (parola.Equals("0"))

@@ -2,10 +2,10 @@ using Dominio;
 
 namespace Interfaccia
 {
-    public class ComandoNonValido : IComando
+    public class ComandoReceptionist : IComando
     {
-        public static readonly string codiceComando = "-1";
-        public static readonly string descrizioneComando = "comando non valido";
+        public static readonly string codiceComando = "2" ;
+        public static readonly string descrizioneComando = "Menu Receptionist";
 
         public string GetCodiceComando()
         {
@@ -19,7 +19,9 @@ namespace Interfaccia
 
         public void Esegui(NaviGator istanza)
         {
-            Console.WriteLine("   Comando non valido, riprovare");
+            ReceptionistConsole rc = new ReceptionistConsole();
+            rc.Start(istanza);
         }
     }
+
 }

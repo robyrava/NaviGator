@@ -9,8 +9,11 @@ namespace Dominio
         private List<Cabina> elencoCabine;
     
         private List<Prenotazione> elencoPrenotazioni;
+        private List<Portata> elencoPortate;
     
         private Prenotazione? prenotazioneInCorso; 
+        private ServizioInCamera? servizioCabinaInCorso;
+        private List<ServizioInCamera> elencoServiziCabina;
     
         private int counter;
     
@@ -19,11 +22,13 @@ namespace Dominio
             elencoClienti = new List<Cliente>();
             elencoCabine = new List<Cabina>();
             elencoPrenotazioni = new List<Prenotazione>();
+            elencoPortate = new List<Portata>();
+            elencoServiziCabina = new List<ServizioInCamera>();
             prenotazioneInCorso = null;
             counter = 1;
             CaricaCabine();
+            CaricaPortate();
         }
-    
         public static NaviGator GetInstance()
         {
             if (istanza == null)
@@ -45,6 +50,18 @@ namespace Dominio
             elencoCabine.Add(c2);
             Cabina c3 = new Cabina("3", "suite", 1000);
             elencoCabine.Add(c3);
+        }
+        
+        public void CaricaPortate()
+        {
+            Portata p1 = new Portata("Spaghetti alla carbonara", true, 20, "01");
+            elencoPortate.Add(p1);
+            Portata p2 = new Portata("Pennette all'arrabbiata", true, 15, "02");
+            elencoPortate.Add(p2);
+            Portata p3 = new Portata("Insalata mista", true, 5 , "03");
+            elencoPortate.Add(p3);
+            Portata p4 = new Portata("Tiramisù", false, 6, "04");
+            elencoPortate.Add(p4);
         }
 
         public List<Cliente> visualizzaClienti()
@@ -157,6 +174,67 @@ namespace Dominio
             prenotazioneInCorso = null;
             return true;
         }
+
+//******************Metodi UC7******************
+
+        public List<Cabina> GetCabine()
+        {
+            return elencoCabine;
+        }
+
+        public void CreaServizioCabina(string codice, DateTime data)
+        {
+            foreach (Cabina c in GetCabine())
+            {
+                if (codice.Equals(c.GetCodice(), StringComparison.OrdinalIgnoreCase))
+                {
+                    servizioCabinaInCorso = new ServizioInCamera(data, c);
+                    break;
+                }
+            }
+        }
+        public ServizioInCamera? GetServizioCabinaInCorso() {
+            return servizioCabinaInCorso;
+        }
+
+        public List<Portata> GetPortateDisponibili()
+        {
+            List<Portata> portateDisponibili = new List<Portata>();
+            foreach (Portata p in elencoPortate)
+            {
+                if (p.GetDisponibilita())
+                {
+                    portateDisponibili.Add(p);
+                }
+            }
+            return portateDisponibili;
+        }
+        public List<Portata> MostraPortate()
+        {
+            return elencoPortate;
+        }
+
+        public List<ServizioInCamera> GetServiziCabina()
+        {
+            return elencoServiziCabina;
+        }
+
+        public void RegistraServizioCabina()
+        {
+            if (servizioCabinaInCorso == null)
+            {
+                Console.WriteLine("ATTENZIONE! Deve essere selezionata la cabina su cui effettuare il servizio in camera");
+                return;
+            }
+
+            elencoServiziCabina.Add(servizioCabinaInCorso);
+        }
+
+        public void ResetServizioCabinaInCorso()
+        {
+            servizioCabinaInCorso = null;
+        }
+        
         
        
     }

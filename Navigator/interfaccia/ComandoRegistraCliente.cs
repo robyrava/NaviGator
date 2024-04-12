@@ -4,17 +4,17 @@ namespace Interfaccia
 {
     public class ComandoRegistraCliente : IComando
     {
-        public static readonly string CodiceComando = "2";
-        public static readonly string DescrizioneComando = "registra cliente";
+        public static readonly string codiceComando = "2";
+        public static readonly string descrizioneComando = "registra cliente";
 
         public string GetCodiceComando()
         {
-            return CodiceComando;
+            return codiceComando;
         }
 
         public string GetDescrizioneComando()
         {
-            return DescrizioneComando;
+            return descrizioneComando;
         }
 
         public void Esegui(NaviGator istanza)

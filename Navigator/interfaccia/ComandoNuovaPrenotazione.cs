@@ -4,17 +4,17 @@ namespace Interfaccia
 {
     public class ComandoNuovaPrenotazione : IComando
     {
-        public static readonly string CodiceComando = "1" ;
-        public static readonly string DescrizioneComando = "Inserisci nuova prenotazione";
+        public static readonly string codiceComando = "1" ;
+        public static readonly string descrizioneComando = "Inserisci nuova prenotazione";
 
         public string GetCodiceComando()
         {
-            return CodiceComando;
+            return codiceComando;
         }
 
         public string GetDescrizioneComando()
         {
-            return DescrizioneComando;
+            return descrizioneComando;
         }
 
         public void Esegui(NaviGator istanza)

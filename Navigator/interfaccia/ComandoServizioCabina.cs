@@ -4,7 +4,7 @@ namespace Interfaccia
 {
     public class ComandoServizioCabina : IComando
     {
-        public static readonly string codiceComando = "1";
+        public static readonly string codiceComando = "2";
         public static readonly string descrizioneComando = "Servizio in Cabina";
 
         public string GetCodiceComando()

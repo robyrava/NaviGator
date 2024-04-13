@@ -61,7 +61,7 @@ namespace Interfaccia
 
                     istanza.GetPrenotazioneInCorso().GetStatoPrenotazione().GestioneStatoPrenotazione(istanza.GetPrenotazioneInCorso(), "Check-out");
                     istanza.VisualizzaPrenotazioni().Add(istanza.GetPrenotazioneInCorso());
-                    Console.WriteLine("Il Check-out è stato effettuato");
+                    Console.WriteLine("Check-out effettuato con successo!");
                     
                     istanza.AnnullaPrenotazioneInCorso();
                 }

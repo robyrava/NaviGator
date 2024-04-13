@@ -40,8 +40,10 @@ namespace Interfaccia
 
         private static readonly Dictionary<string, string> comandiValidiReceptionistConsole = new Dictionary<string, string>
         {
-            {ComandoServizioCabina.codiceComando, ComandoServizioCabina.descrizioneComando },
             { ComandoCheckInOut.codiceComando, ComandoCheckInOut.descrizioneComando},
+            {ComandoServizioCabina.codiceComando, ComandoServizioCabina.descrizioneComando },
+            {ComandoVisualizzaPrenotazioni.codiceComando, ComandoVisualizzaPrenotazioni.descrizioneComando},
+
             { ComandoIndietro.codiceComando, ComandoIndietro.descrizioneComando }
         };
 

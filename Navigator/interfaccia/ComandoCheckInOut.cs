@@ -4,7 +4,7 @@ namespace Interfaccia
 {
     public class ComandoCheckInOut : IComando
     {
-        public static readonly string codiceComando = "2" ;
+        public static readonly string codiceComando = "1" ;
         public static readonly string descrizioneComando = "Check-in/Check-out";
 
         public string GetCodiceComando()

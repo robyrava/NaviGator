@@ -65,9 +65,12 @@ namespace Interfaccia
                 if(console == ElencoComandi.RECEPTIONIST)
                 {
                     if(parola.Equals("1"))
-                        comando = new ComandoServizioCabina();
-                    if(parola.Equals("2"))
                         comando = new ComandoCheckInOut();
+                    if(parola.Equals("2"))
+                        comando = new ComandoServizioCabina();
+                    if(parola.Equals("3"))
+                        comando = new ComandoVisualizzaPrenotazioni();
+                        
                 }
 
                 if(console == ElencoComandi.SERVIZIO_CABINA)

@@ -21,7 +21,7 @@ namespace Interfaccia
 
         public void Visualizza()
         {
-            Console.WriteLine("***MENU CHECK IN/OUT***");
+            Console.WriteLine("\n***MENU CHECK IN/OUT***");
             Console.WriteLine(ElencoComandi.ElencoTuttiComandi(ElencoComandi.CHECK_IN_OUT));
             Console.WriteLine("FAI LA TUA SCELTA");
         }

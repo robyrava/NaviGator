@@ -21,7 +21,7 @@ namespace Interfaccia
 
         public void Visualizza()
         {
-            Console.WriteLine("***Menu servizio in cabina***");
+            Console.WriteLine("\n***Menu servizio in cabina***");
             Console.WriteLine(ElencoComandi.ElencoTuttiComandi(ElencoComandi.SERVIZIO_CABINA));
             Console.WriteLine("FAI LA TUA SCELTA");
         }

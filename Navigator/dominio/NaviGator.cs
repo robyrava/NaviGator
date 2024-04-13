@@ -1,3 +1,5 @@
+using System.Security.Cryptography;
+
 namespace Dominio
 {
     public class NaviGator
@@ -42,6 +44,10 @@ namespace Dominio
         {
             return prenotazioneInCorso;
         }
+        public void SetPrenotazioneInCorso(Prenotazione p)
+        {
+            prenotazioneInCorso = p;
+        }
         public void CaricaCabine()
         {
             Cabina c1 = new Cabina("1", "interna", 600);
@@ -64,11 +70,11 @@ namespace Dominio
             elencoPortate.Add(p4);
         }
 
-        public List<Cliente> visualizzaClienti()
+        public List<Cliente> VisualizzaClienti()
         {
             return elencoClienti;
         }
-        public List<Prenotazione> visualizzaPrenotazioni()
+        public List<Prenotazione> VisualizzaPrenotazioni()
         {
             return elencoPrenotazioni;
         }
@@ -156,12 +162,13 @@ namespace Dominio
             //verifico che la cabina sia stata registrata
             if(prenotazioneInCorso == null)
                 throw new Exception("Devi registrare una cabina prima di procedere con la prenotazione");
-            //verifico che il cliente sia stato registrato
+            //verifico siano stati registrati i dati del cliente
             if(prenotazioneInCorso.GetCliente() == null)
                 throw new Exception("Devi registrare un cliente prima di procedere con la prenotazione");
 
             prenotazioneInCorso.SetDataInizio(dataInizio);
             prenotazioneInCorso.SetDataFine(dataFine);
+            prenotazioneInCorso.GetStatoPrenotazione().GestioneStatoPrenotazione(prenotazioneInCorso,"Creato");
             elencoPrenotazioni.Add(prenotazioneInCorso);
             counter++;
         }
@@ -173,6 +180,18 @@ namespace Dominio
             
             prenotazioneInCorso = null;
             return true;
+        }
+
+//******************Metodi UC3 check-in/out******************
+        public List<Prenotazione> MostraPrenotazioneCliente(string codice_fiscale)
+        {
+            List<Prenotazione> prenotazioniCliente = new List<Prenotazione>();
+            foreach (Prenotazione p in elencoPrenotazioni)
+            {
+                if (p.GetCliente().GetCodiceFiscale().Equals(codice_fiscale, StringComparison.OrdinalIgnoreCase))
+                    prenotazioniCliente.Add(p);
+            }
+            return prenotazioniCliente;
         }
 
 //******************Metodi UC7******************

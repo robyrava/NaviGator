@@ -25,7 +25,7 @@ namespace Interfaccia
                 string codiceCliente = Console.ReadLine();
                 Console.WriteLine();
                 bool clientePresente = false;
-                foreach (Prenotazione p in naviGator.visualizzaPrenotazioni())
+                foreach (Prenotazione p in naviGator.VisualizzaPrenotazioni())
                 {
                     if (p.GetCliente().GetCodiceFiscale() == codiceCliente)
                     {
@@ -38,7 +38,7 @@ namespace Interfaccia
                     Console.WriteLine("Inserisci il codice della prenotazione da eliminare: ");
                     string codicePrenotazione = Console.ReadLine();
                     bool codiceCorretto = false;
-                    foreach (Prenotazione p in naviGator.visualizzaPrenotazioni())
+                    foreach (Prenotazione p in naviGator.VisualizzaPrenotazioni())
                     {
                         if (p.GetCodice() == codicePrenotazione && p.GetCliente().GetCodiceFiscale() == codiceCliente)
                         {
@@ -48,7 +48,7 @@ namespace Interfaccia
                     }
                     if (codiceCorretto)
                     {
-                        naviGator.visualizzaPrenotazioni().RemoveAll(p => p.GetCodice() == codicePrenotazione);
+                        naviGator.VisualizzaPrenotazioni().RemoveAll(p => p.GetCodice() == codicePrenotazione);
                         Console.WriteLine("La prenotazione è stata annullata con successo");
                     }
                     else

@@ -1,3 +1,5 @@
+using GestioneStato;
+
 namespace Dominio
 {
     public class Prenotazione
@@ -7,10 +9,13 @@ namespace Dominio
         private DateTime dataFine;
         private Cabina? cabina;
         private Cliente? cliente;
+        private IStato statoPrenotazione;
+        //private List<RichiestaDiServizio> elencoRichiesteServizi;
 
         public Prenotazione(string codice)
         {
             this.codice = codice;
+            statoPrenotazione= new StatoInCorso();
         }
         
         public bool IsDisponibile(string codiceCabina, DateTime dataInizio, DateTime dataFine)
@@ -74,7 +79,16 @@ namespace Dominio
         {
             this.cliente = cliente;
         }
+
+        public void SetStatoPrenotazione(IStato statoPrenotazione)
+        {
+            this.statoPrenotazione = statoPrenotazione;
+        }
         
+        public IStato GetStatoPrenotazione()
+        {
+            return statoPrenotazione;
+        }
 
         public override string ToString()
         {

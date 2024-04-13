@@ -2,10 +2,10 @@ using Dominio;
 
 namespace Interfaccia
 {
-    public class ComandoEsci : IComando
+    public class ComandoCheckInOut : IComando
     {
-        public static readonly string codiceComando = "0";
-        public static readonly string descrizioneComando = "Esci";
+        public static readonly string codiceComando = "2" ;
+        public static readonly string descrizioneComando = "Check-in/Check-out";
 
         public string GetCodiceComando()
         {
@@ -19,7 +19,8 @@ namespace Interfaccia
 
         public void Esegui(NaviGator istanza)
         {
-            //torna al menu precedente oppure esce se non ci sono menu precedenti
+            CheckInOutConsole ch = new CheckInOutConsole();
+            ch.Start(istanza);
         }
     }
 

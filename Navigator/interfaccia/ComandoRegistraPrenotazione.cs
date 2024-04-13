@@ -29,8 +29,8 @@ namespace Interfaccia
                 if (istanza.VerificaCabinaPrenotata(istanza.GetPrenotazioneInCorso().GetCabina().GetCodice(), DateTime.Parse(dataI), DateTime.Parse(dataF)))
                 {
                     istanza.RegistraPrenotazione(DateTime.Parse(dataI), DateTime.Parse(dataF));
-                    Console.WriteLine("Il cliente: " + istanza.GetPrenotazioneInCorso().GetCliente().ToString() + " ha effettuato la prenotazione!");
-                    foreach (Prenotazione p in istanza.visualizzaPrenotazioni())
+                    Console.WriteLine("\nIl cliente:\n" + istanza.GetPrenotazioneInCorso().GetCliente().ToString() + "ha effettuato la prenotazione!");
+                    foreach (Prenotazione p in istanza.VisualizzaPrenotazioni())
                     {
                         Console.WriteLine(p.ToString());
                     }

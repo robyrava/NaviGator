@@ -21,7 +21,7 @@ namespace Interfaccia
 
         public void Visualizza()
         {
-            Console.WriteLine("***TOUR OPERATOR CONSOLE***");
+            Console.WriteLine("\n***TOUR OPERATOR CONSOLE***");
             Console.WriteLine(ElencoComandi.ElencoTuttiComandi(ElencoComandi.TOUR_OPERATOR));
             Console.WriteLine("FAI LA TUA SCELTA");
         }

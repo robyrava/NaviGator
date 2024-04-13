@@ -66,6 +66,8 @@ namespace Interfaccia
                 {
                     if(parola.Equals("1"))
                         comando = new ComandoServizioCabina();
+                    if(parola.Equals("2"))
+                        comando = new ComandoCheckInOut();
                 }
 
                 if(console == ElencoComandi.SERVIZIO_CABINA)
@@ -74,6 +76,14 @@ namespace Interfaccia
                         comando = new ComandoAssociaServizioCabina();
                     if(parola.Equals("2"))
                         comando = new ComandoSelezionaPortate();
+                }
+
+                if(console == ElencoComandi.CHECK_IN_OUT)
+                {
+                    if(parola.Equals("1"))
+                        comando = new ComandoCheckIn();
+                    if(parola.Equals("2"))
+                        comando = new ComandoCheckOut();
                 }
 
                 if (parola.Equals("0"))

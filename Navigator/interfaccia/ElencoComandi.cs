@@ -10,6 +10,7 @@ namespace Interfaccia
         public const int NUOVA_PRENOTAZIONE = 2;
         public const int RECEPTIONIST = 3;
         public const int SERVIZIO_CABINA = 4;
+        public const int CHECK_IN_OUT = 5;
 
         
         
@@ -25,7 +26,7 @@ namespace Interfaccia
         {
             { ComandoNuovaPrenotazione.codiceComando, ComandoNuovaPrenotazione.descrizioneComando },
             { ComandoEliminaPrenotazione.codiceComando, ComandoEliminaPrenotazione.descrizioneComando },
-            { ComandoEsci.codiceComando, ComandoEsci.descrizioneComando }
+            { ComandoIndietro.codiceComando, ComandoIndietro.descrizioneComando }
         };
 
         private static readonly Dictionary<string, string> comandiValidiNuovaPrenotazioneConsole = new Dictionary<string, string>
@@ -34,21 +35,28 @@ namespace Interfaccia
             { ComandoRegistraCliente.codiceComando, ComandoRegistraCliente.descrizioneComando },
             { ComandoRegistraPrenotazione.codiceComando, ComandoRegistraPrenotazione.descrizioneComando },
             { ComandoAnnullaPrenotazioneInCorso.codiceComando, ComandoAnnullaPrenotazioneInCorso.descrizioneComando},
-            { ComandoEsci.codiceComando, ComandoEsci.descrizioneComando }
+            { ComandoIndietro.codiceComando, ComandoIndietro.descrizioneComando }
         };
 
         private static readonly Dictionary<string, string> comandiValidiReceptionistConsole = new Dictionary<string, string>
         {
             {ComandoServizioCabina.codiceComando, ComandoServizioCabina.descrizioneComando },
-            //Gestisci check-in/check out
-            { ComandoEsci.codiceComando, ComandoEsci.descrizioneComando }
+            { ComandoCheckInOut.codiceComando, ComandoCheckInOut.descrizioneComando},
+            { ComandoIndietro.codiceComando, ComandoIndietro.descrizioneComando }
         };
 
         private static readonly Dictionary<string, string> comandiValidiServizioCabina = new Dictionary<string, string>
         {
             {ComandoAssociaServizioCabina.codiceComando, ComandoAssociaServizioCabina.descrizioneComando},
             {ComandoSelezionaPortate.codiceComando,ComandoSelezionaPortate.descrizioneComando},
-            { ComandoEsci.codiceComando, ComandoEsci.descrizioneComando }
+            { ComandoIndietro.codiceComando, ComandoIndietro.descrizioneComando }
+        };
+
+        private static readonly Dictionary<string, string> comandiValidiCheckINOUTConsole = new Dictionary<string, string>
+        {
+            { ComandoCheckIn.codiceComando, ComandoCheckIn.descrizioneComando },
+            { ComandoCheckOut.codiceComando, ComandoCheckOut.descrizioneComando },
+            { ComandoIndietro.codiceComando, ComandoIndietro.descrizioneComando }
         };
 
         public static string ElencoTuttiComandi(int console)
@@ -82,6 +90,8 @@ namespace Interfaccia
                     return comandiValidiNuovaPrenotazioneConsole;
                 case SERVIZIO_CABINA:
                     return comandiValidiServizioCabina;
+                case CHECK_IN_OUT:
+                    return comandiValidiCheckINOUTConsole;
 
                 default:
                     return new Dictionary<string, string>();

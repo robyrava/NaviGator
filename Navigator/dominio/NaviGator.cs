@@ -16,6 +16,7 @@ namespace Dominio
         private Prenotazione? prenotazioneInCorso; 
         private ServizioInCamera? servizioCabinaInCorso;
         private List<ServizioInCamera> elencoServiziCabina;
+        private List<Servizio> listaServizi;
     
         private int counter;
     
@@ -26,10 +27,12 @@ namespace Dominio
             elencoPrenotazioni = new List<Prenotazione>();
             elencoPortate = new List<Portata>();
             elencoServiziCabina = new List<ServizioInCamera>();
+            listaServizi = new List<Servizio>();
             prenotazioneInCorso = null;
             counter = 1;
             CaricaCabine();
             CaricaPortate();
+            CaricaServizi();
         }
         public static NaviGator GetInstance()
         {
@@ -68,6 +71,18 @@ namespace Dominio
             elencoPortate.Add(p3);
             Portata p4 = new Portata("Tiramisù", false, 6, "04");
             elencoPortate.Add(p4);
+        }
+
+        public void CaricaServizi()
+        {
+            Servizio s1 = new Servizio("01", "Spa: Massaggio rilassante", 50);
+            listaServizi.Add(s1);
+            Servizio s2 = new Servizio("02", "Escursione: Alla scoperta di Malta", 150); 
+            listaServizi.Add(s2);
+            Servizio s3 = new Servizio("03", "Snorkeling a Santorini", 70);
+            listaServizi.Add(s3);
+            Servizio s4 = new Servizio("04", "Bagno con i delfini", 100);
+            listaServizi.Add(s4);
         }
 
         public List<Cliente> VisualizzaClienti()
@@ -192,6 +207,11 @@ namespace Dominio
                     prenotazioniCliente.Add(p);
             }
             return prenotazioniCliente;
+        }
+//******************Metodi UC4******************
+        public List<Servizio> VisualizzaServizi()
+        {
+            return listaServizi;
         }
 
 //******************Metodi UC7******************

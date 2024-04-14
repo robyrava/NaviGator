@@ -43,6 +43,7 @@ namespace Interfaccia
             { ComandoCheckInOut.codiceComando, ComandoCheckInOut.descrizioneComando},
             {ComandoServizioCabina.codiceComando, ComandoServizioCabina.descrizioneComando },
             {ComandoVisualizzaPrenotazioni.codiceComando, ComandoVisualizzaPrenotazioni.descrizioneComando},
+            {ComandoAggiungiServizio.codiceComando, ComandoAggiungiServizio.descrizioneComando},
 
             { ComandoIndietro.codiceComando, ComandoIndietro.descrizioneComando }
         };

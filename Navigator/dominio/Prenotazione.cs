@@ -10,12 +10,13 @@ namespace Dominio
         private Cabina? cabina;
         private Cliente? cliente;
         private IStato statoPrenotazione;
-        //private List<RichiestaDiServizio> elencoRichiesteServizi;
+        private List<RichiestaServizio> serviziRichiesti;
 
         public Prenotazione(string codice)
         {
             this.codice = codice;
             statoPrenotazione= new StatoInCorso();
+            serviziRichiesti = new List<RichiestaServizio>();
         }
         
         public bool IsDisponibile(string codiceCabina, DateTime dataInizio, DateTime dataFine)
@@ -61,6 +62,10 @@ namespace Dominio
         {
             return cliente;
         }
+        public List<RichiestaServizio> GetServiziRichiesti()
+        {
+            return serviziRichiesti;
+        }
 
         //METODI SET
         public void SetDataInizio(DateTime dataInizio)
@@ -89,7 +94,11 @@ namespace Dominio
         {
             return statoPrenotazione;
         }
-
+        public void SetServizio(RichiestaServizio s)
+        {
+            serviziRichiesti.Add(s);
+        }
+        
         public override string ToString()
         {
             return $"codice: {GetCodice()}\ndata inizio: {GetDataInizio()}\ndata fine: {GetDataFine()}\n";

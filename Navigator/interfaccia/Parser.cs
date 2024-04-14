@@ -70,6 +70,8 @@ namespace Interfaccia
                         comando = new ComandoServizioCabina();
                     if(parola.Equals("3"))
                         comando = new ComandoVisualizzaPrenotazioni();
+                    if(parola.Equals("4"))
+                        comando = new ComandoAggiungiServizio();
                         
                 }
 

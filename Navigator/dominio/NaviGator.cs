@@ -356,12 +356,12 @@ namespace Dominio
             return "\nPortata aggiunta con successo";
         }
 
-        public bool RimuoviPortata(string nome)
+        public bool RimuoviPortata(int codice)
         {
             //Se la portata è presente tra quelle disponibili, la rendo non disponibile
             foreach (Portata p in elencoPortate)
             {
-                if (p.GetNome().Equals(nome, StringComparison.OrdinalIgnoreCase))
+                if (p.GetCodice().Equals(codice))
                 {
                     p.SetDisponibilita(false);
                     return true;

@@ -20,7 +20,7 @@ namespace Interfaccia
 
         public void Esegui(NaviGator istanza)
         {
-            string nome;
+            string input;
             bool esito;
 
             //Stampo il menu delle portate
@@ -29,16 +29,17 @@ namespace Interfaccia
                 Console.WriteLine(p.ToString() + $"\tDisponibilità: {p.GetDisponibilita()}");
             }
 
-            Console.WriteLine("Inserisci il nome della portata da rimuovere dal menu: ");
+            //Richiedo codice
+            Console.WriteLine("Inserisci il codice della portata da rimuovere dal menu: ");
             while(true)
             {
-                nome = Parser.GetInstance().Read();
-                if(Validatore.VerificaNome(nome))
+                input = Parser.GetInstance().Read();
+                if(Validatore.VerificaCodice(input))
                     break;
-                Console.WriteLine("Nome non valido, riprova: ");
+                Console.WriteLine("Codice non valido, riprova: ");
             }
 
-            esito = istanza.RimuoviPortata(nome);
+            esito = istanza.RimuoviPortata(int.Parse(input));
             
             if(esito)
                 Console.WriteLine("\nPortata rimossa con successo");

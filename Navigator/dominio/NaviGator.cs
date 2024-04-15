@@ -67,13 +67,13 @@ namespace Dominio
         
         public void CaricaPortate()
         {
-            Portata p1 = new Portata("Spaghetti alla carbonara", true, 20, "01");
+            Portata p1 = new Portata("Spaghetti alla carbonara", true, 20,elencoPortate.Count+1);
             elencoPortate.Add(p1);
-            Portata p2 = new Portata("Pennette all'arrabbiata", true, 15, "02");
+            Portata p2 = new Portata("Pennette all'arrabbiata", true, 15, elencoPortate.Count+1);
             elencoPortate.Add(p2);
-            Portata p3 = new Portata("Insalata mista", true, 5 , "03");
+            Portata p3 = new Portata("Insalata mista", true, 5 ,elencoPortate.Count+1);
             elencoPortate.Add(p3);
-            Portata p4 = new Portata("Tiramisù", false, 6, "04");
+            Portata p4 = new Portata("Tiramisu", false, 6, elencoPortate.Count+1);
             elencoPortate.Add(p4);
         }
 
@@ -336,6 +336,40 @@ namespace Dominio
             servizioCabinaInCorso = null;
         }
         
+
+//******************Metodi UC10******************
+        public string AggiornaMenu(string nome, double prezzo)
+        {
+            //Se la portata è già presente tra quelle non disponibili, la rendo disponibile. Senno la aggiungo
+            foreach (Portata p in elencoPortate)
+            {
+                if (p.GetNome().Equals(nome, StringComparison.OrdinalIgnoreCase))
+                {
+                    p.SetDisponibilita(true);
+                    p.SetPrezzo(prezzo);
+                    return "\nPortata aggiornata con successo";
+                }
+            }
+            
+            Portata nuovaPortata = new Portata(nome, true, prezzo, elencoPortate.Count+1);
+            elencoPortate.Add(nuovaPortata);
+            return "\nPortata aggiunta con successo";
+        }
+
+        public bool RimuoviPortata(string nome)
+        {
+            //Se la portata è presente tra quelle disponibili, la rendo non disponibile
+            foreach (Portata p in elencoPortate)
+            {
+                if (p.GetNome().Equals(nome, StringComparison.OrdinalIgnoreCase))
+                {
+                    p.SetDisponibilita(false);
+                    return true;
+                }
+            }
+            return false;
+        }
+
         
        
     }

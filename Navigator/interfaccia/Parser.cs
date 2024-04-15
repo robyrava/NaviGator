@@ -36,10 +36,9 @@ namespace Interfaccia
                         comando = new ComandoTourOperator();
                     if (parola.Equals("2"))
                         comando = new ComandoReceptionist();
-                    /**
                     if (parola.Equals("3"))
                         comando = new ComandoAdmin();
-                    */
+
                 }
 
                 if (console == ElencoComandi.TOUR_OPERATOR)
@@ -90,6 +89,27 @@ namespace Interfaccia
                         comando = new ComandoCheckIn();
                     if(parola.Equals("2"))
                         comando = new ComandoCheckOut();
+                }
+
+                if(console == ElencoComandi.ADMIN)
+                {
+                    if(parola.Equals("1"))
+                        comando = new ComandoGestisciPortata();
+                /**
+                    if(parola.Equals("2"))
+                        comando = new ComandoGestisciCabine();
+                    if(parola.Equals("3"))
+                        comando = new ComandoGestisciPrezzoCabine();
+                    if(parola.Equals("4"))
+                        comando = new ComandoGestisciServizi();
+                */
+                }
+                if(console == ElencoComandi.GESTIONE_PORTATA)
+                {
+                    if(parola.Equals("1"))
+                        comando = new ComandoAggiungiPortata();
+                    if(parola.Equals("2"))
+                        comando = new ComandoRimuoviPortata();
                 }
 
                 if (parola.Equals("0"))

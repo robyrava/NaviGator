@@ -6,9 +6,9 @@ namespace Dominio
         protected bool disponibilita;
         protected double prezzo;
 
-        private string codice;
+        private int codice;
 
-        public Portata(string nome, bool disponibilita, double prezzo, string codice)
+        public Portata(string nome, bool disponibilita, double prezzo, int codice)
         {
             this.nome = nome;
             this.disponibilita = disponibilita;
@@ -34,11 +34,20 @@ namespace Dominio
         {
             return prezzo;
         }
+        public void SetPrezzo(double value)
+        {
+            prezzo = value;
+        }
 
-        public string GetCodice()
+        public int GetCodice()
         {
             return codice;
         }
+        public void SetCodice(int value)
+        {
+            codice = value;
+        }
+
 
         public override string ToString()
         {

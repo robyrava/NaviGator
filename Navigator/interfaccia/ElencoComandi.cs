@@ -11,6 +11,8 @@ namespace Interfaccia
         public const int RECEPTIONIST = 3;
         public const int SERVIZIO_CABINA = 4;
         public const int CHECK_IN_OUT = 5;
+        public const int ADMIN = 6;
+        public const int GESTIONE_PORTATA = 7;
 
         
         
@@ -18,7 +20,7 @@ namespace Interfaccia
         {
             { ComandoTourOperator.codiceComando, ComandoTourOperator.descrizioneComando },
             { ComandoReceptionist.codiceComando, ComandoReceptionist.descrizioneComando },
-            //{ ComandoAdmin.codiceComando, ComandoAdmin.descrizioneComando },
+            { ComandoAdmin.codiceComando, ComandoAdmin.descrizioneComando },
             { ComandoEsci.codiceComando, ComandoEsci.descrizioneComando }
         };
 
@@ -61,6 +63,18 @@ namespace Interfaccia
             { ComandoCheckOut.codiceComando, ComandoCheckOut.descrizioneComando },
             { ComandoIndietro.codiceComando, ComandoIndietro.descrizioneComando }
         };
+        private static readonly Dictionary<string, string> comandiValidiAdminConsole = new Dictionary<string, string>
+        {
+            {ComandoGestisciPortata.codiceComando, ComandoGestisciPortata.descrizioneComando},
+            
+            { ComandoIndietro.codiceComando, ComandoIndietro.descrizioneComando }
+        };
+        private static readonly Dictionary<string, string> comandiValidiGestionePortataConsole = new Dictionary<string, string>
+        {
+            {ComandoAggiungiPortata.codiceComando, ComandoAggiungiPortata.descrizioneComando},
+            {ComandoRimuoviPortata.codiceComando, ComandoRimuoviPortata.descrizioneComando},            
+            { ComandoIndietro.codiceComando, ComandoIndietro.descrizioneComando }
+        };
 
         public static string ElencoTuttiComandi(int console)
         {
@@ -85,16 +99,16 @@ namespace Interfaccia
                     return comandiValidiTourOperatorConsole;
                 case RECEPTIONIST:
                     return comandiValidiReceptionistConsole;
-                /**
                 case ADMIN:
                     return comandiValidiAdminConsole;
-                */
                 case NUOVA_PRENOTAZIONE:
                     return comandiValidiNuovaPrenotazioneConsole;
                 case SERVIZIO_CABINA:
                     return comandiValidiServizioCabina;
                 case CHECK_IN_OUT:
                     return comandiValidiCheckINOUTConsole;
+                case GESTIONE_PORTATA:
+                    return comandiValidiGestionePortataConsole;
 
                 default:
                     return new Dictionary<string, string>();

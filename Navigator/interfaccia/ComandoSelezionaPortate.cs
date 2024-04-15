@@ -33,8 +33,13 @@ namespace Interfaccia
                 {
                     Console.WriteLine(p.ToString());
                 }
+
+                //AGGIUNGERE VALIDAZIONE
+
                 Console.WriteLine("\nInserisci il codice della portata da ordinare (0 per terminare): ");
-                string codicePortata = Parser.GetInstance().Read();
+                string input = Parser.GetInstance().Read();
+                int codicePortata = int.Parse(input);
+
                 if (codicePortata.Equals("0"))
                     break;
 
@@ -42,7 +47,7 @@ namespace Interfaccia
 
                 foreach (Portata p in istanza.GetPortateDisponibili())
                 {
-                    if (codicePortata.Equals(p.GetCodice(), StringComparison.OrdinalIgnoreCase))
+                    if (codicePortata.Equals(p.GetCodice()))
                     {
                         Console.WriteLine("Inserisci la quantita: ");
                         string quantita = Parser.GetInstance().Read();

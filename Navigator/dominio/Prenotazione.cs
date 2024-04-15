@@ -62,10 +62,7 @@ namespace Dominio
         {
             return cliente;
         }
-        public List<RichiestaServizio> GetServiziRichiesti()
-        {
-            return serviziRichiesti;
-        }
+        
 
         //METODI SET
         public void SetDataInizio(DateTime dataInizio)
@@ -94,10 +91,16 @@ namespace Dominio
         {
             return statoPrenotazione;
         }
+        
+        public List<RichiestaServizio> GetServiziRichiesti()
+        {
+            return serviziRichiesti;
+        }
         public void SetServizio(RichiestaServizio s)
         {
             serviziRichiesti.Add(s);
         }
+        
         
         public override string ToString()
         {

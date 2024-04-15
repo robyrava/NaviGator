@@ -14,8 +14,8 @@ namespace Dominio
         private List<Portata> elencoPortate;
     
         private Prenotazione? prenotazioneInCorso; 
-        private ServizioInCamera? servizioCabinaInCorso;
-        private List<ServizioInCamera> elencoServiziCabina;
+        private ServizioInCabina? servizioCabinaInCorso;
+        private List<ServizioInCabina> elencoServiziCabina;
         private List<Servizio> listaServizi;
     
         private int counter;
@@ -26,13 +26,16 @@ namespace Dominio
             elencoCabine = new List<Cabina>();
             elencoPrenotazioni = new List<Prenotazione>();
             elencoPortate = new List<Portata>();
-            elencoServiziCabina = new List<ServizioInCamera>();
+            elencoServiziCabina = new List<ServizioInCabina>();
             listaServizi = new List<Servizio>();
             prenotazioneInCorso = null;
             counter = 1;
             CaricaCabine();
             CaricaPortate();
             CaricaServizi();
+
+            //Da rimuovere
+            CaricaPrenotazioni();
         }
         public static NaviGator GetInstance()
         {
@@ -51,6 +54,7 @@ namespace Dominio
         {
             prenotazioneInCorso = p;
         }
+
         public void CaricaCabine()
         {
             Cabina c1 = new Cabina("1", "interna", 600);
@@ -83,6 +87,29 @@ namespace Dominio
             listaServizi.Add(s3);
             Servizio s4 = new Servizio("04", "Bagno con i delfini", 100);
             listaServizi.Add(s4);
+        }
+
+        //DA RIMUOVERE
+        public void CaricaPrenotazioni()
+        {
+            
+            Cliente c1 = new Cliente("Mario", "Rossi", "3333333333", "q", "q", "1234");
+            Prenotazione p1 = new Prenotazione("1");
+            p1.SetCliente(c1);
+            p1.SetDataInizio(new DateTime(2024,1, 1));
+            p1.SetDataFine(new DateTime(2024,1, 10));
+            p1.SetCabina(elencoCabine[1]);
+            p1.GetStatoPrenotazione().GestioneStatoPrenotazione(p1,"Creato");
+            elencoPrenotazioni.Add(p1);
+
+            Cliente c2 = new Cliente("Luca", "Verdi", "3333333333", "w", "w", "1234");
+            Prenotazione p2 = new Prenotazione("2");
+            p2.SetCliente(c2);
+            p2.SetDataInizio(new DateTime(2024,1, 1));
+            p2.SetDataFine(new DateTime(2024,1, 10));
+            p2.SetCabina(elencoCabine[0]);
+            p2.GetStatoPrenotazione().GestioneStatoPrenotazione(p2,"Creato");
+            elencoPrenotazioni.Add(p2);
         }
 
         public List<Cliente> VisualizzaClienti()
@@ -209,10 +236,45 @@ namespace Dominio
             return prenotazioniCliente;
         }
 //******************Metodi UC4******************
-        public List<Servizio> VisualizzaServizi()
+        public List<Servizio> GetListaServizi()
         {
             return listaServizi;
         }
+
+//******************Metodi UC5******************
+    public double CalcolaConto(Prenotazione p)
+    {       
+        double contoServizi = 0;
+        double contoServizioCabina = 0;
+        
+    
+        foreach (RichiestaServizio rs in p.GetServiziRichiesti())
+        {
+            contoServizi = contoServizi + rs.GetSubTotale();
+        }
+
+        foreach (ServizioInCabina sc in elencoServiziCabina)
+        {
+            if (sc.GetCabina().GetCodice().Equals(p.GetCabina().GetCodice()))
+            {
+                contoServizioCabina = contoServizioCabina + sc.GetSubTot();
+            }
+        }
+
+        //Applico Sconto del 20% se la cabina è una suite
+        if (p.GetCabina().GetTipo().Equals("suite", StringComparison.OrdinalIgnoreCase))
+        {
+            contoServizioCabina = contoServizioCabina - (contoServizioCabina * 0.2);
+        }
+
+        return contoServizioCabina + contoServizi;
+        
+    }
+
+    public void RimuoviPrenotazione(Prenotazione p)
+    {
+        elencoPrenotazioni.Remove(p);
+    }
 
 //******************Metodi UC7******************
 
@@ -227,12 +289,12 @@ namespace Dominio
             {
                 if (codice.Equals(c.GetCodice(), StringComparison.OrdinalIgnoreCase))
                 {
-                    servizioCabinaInCorso = new ServizioInCamera(data, c);
+                    servizioCabinaInCorso = new ServizioInCabina(data, c);
                     break;
                 }
             }
         }
-        public ServizioInCamera? GetServizioCabinaInCorso() {
+        public ServizioInCabina? GetServizioCabinaInCorso() {
             return servizioCabinaInCorso;
         }
 
@@ -253,7 +315,7 @@ namespace Dominio
             return elencoPortate;
         }
 
-        public List<ServizioInCamera> GetServiziCabina()
+        public List<ServizioInCabina> GetServiziCabina()
         {
             return elencoServiziCabina;
         }

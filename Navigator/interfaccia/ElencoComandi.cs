@@ -44,7 +44,7 @@ namespace Interfaccia
             {ComandoServizioCabina.codiceComando, ComandoServizioCabina.descrizioneComando },
             {ComandoVisualizzaPrenotazioni.codiceComando, ComandoVisualizzaPrenotazioni.descrizioneComando},
             {ComandoAggiungiServizio.codiceComando, ComandoAggiungiServizio.descrizioneComando},
-
+            {ComandoCalcolaConto.codiceComando, ComandoCalcolaConto.descrizioneComando},
             { ComandoIndietro.codiceComando, ComandoIndietro.descrizioneComando }
         };
 

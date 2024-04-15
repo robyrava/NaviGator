@@ -58,16 +58,17 @@ namespace Interfaccia
                     istanza.GetPrenotazioneInCorso().GetStatoPrenotazione().GestioneStatoPrenotazione(istanza.GetPrenotazioneInCorso(),"Check-in");
                     istanza.VisualizzaPrenotazioni().Add(istanza.GetPrenotazioneInCorso());
                     Console.WriteLine("\nCheck-in effettuato con successo!");
-                    istanza.AnnullaPrenotazioneInCorso();
+                    
                 }else 
                 {
                     Console.WriteLine("\nIl Cliente ha già effettuato il check-in o il codice prenotazione è errato");
-                    istanza.AnnullaPrenotazioneInCorso();
+                    
                 }
             }else {
                 Console.WriteLine("\nIl Cliente non ha effettuato nessuna prenotazione");
-                istanza.AnnullaPrenotazioneInCorso();
+                
             }
+            istanza.AnnullaPrenotazioneInCorso();
         }
     }
 

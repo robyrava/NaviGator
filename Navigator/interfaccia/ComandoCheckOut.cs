@@ -22,7 +22,7 @@ namespace Interfaccia
             Console.WriteLine("   Inserisci il codice fiscale del cliente: ");
             string codiceCliente = Console.ReadLine();
             
-
+            //verifica se il cliente ha prenotazioni in stato "Check-in"
             bool clientePresente = false;
             foreach (var p in istanza.MostraPrenotazioneCliente(codiceCliente))
             {
@@ -58,21 +58,26 @@ namespace Interfaccia
                     {
                         istanza.VisualizzaPrenotazioni().Remove(prenotazione);
                     }
-
+                    
+                    //imposto lo stato della prenotazione a "Check-out"
                     istanza.GetPrenotazioneInCorso().GetStatoPrenotazione().GestioneStatoPrenotazione(istanza.GetPrenotazioneInCorso(), "Check-out");
+                    
+                    //aggiorno la lista delle prenotazioni
                     istanza.VisualizzaPrenotazioni().Add(istanza.GetPrenotazioneInCorso());
                     Console.WriteLine("Check-out effettuato con successo!");
                     
-                    istanza.AnnullaPrenotazioneInCorso();
+                    
                 }
                 else
                 {
                     Console.WriteLine("Il codice non è corretto o il check-out non è applicabile");
-                    istanza.AnnullaPrenotazioneInCorso();
+                    
                 }
             }
             else
                 Console.WriteLine("Il cliente non è presente");
+        
+            istanza.AnnullaPrenotazioneInCorso();
         }
     }
 }

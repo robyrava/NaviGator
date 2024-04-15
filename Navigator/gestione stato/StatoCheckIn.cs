@@ -6,13 +6,13 @@ namespace GestioneStato
     {
         public void GestioneStatoPrenotazione(Prenotazione prenotazione, string stato)
         {
-            if (stato.Equals("Check-in"))
-                prenotazione.SetStatoPrenotazione(new StatoCheckIn());
+            if (stato.Equals("Check-out", StringComparison.OrdinalIgnoreCase))
+                prenotazione.SetStatoPrenotazione(new StatoCheckOut());
         }
 
         public bool EqualsStato(string stato)
         {
-            return stato.Equals("Check-in");
+            return stato.Equals("Check-in",StringComparison.OrdinalIgnoreCase);
         }
     }
 }

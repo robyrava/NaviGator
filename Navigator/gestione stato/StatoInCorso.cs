@@ -12,7 +12,7 @@ namespace GestioneStato
     
         public bool EqualsStato(string stato)
         {
-            return stato.Equals("In corso", StringComparison.OrdinalIgnoreCase);
+            return stato.Equals("In_corso", StringComparison.OrdinalIgnoreCase);
         }
     }
 }

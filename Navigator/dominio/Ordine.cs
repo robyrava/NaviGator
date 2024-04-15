@@ -23,9 +23,6 @@ namespace Dominio
         public double GetSubTotale() {
             return subTotale;
         }
-        public void SetSubTotale(float sub) {
-            subTotale = sub;
-        }
         
     }
 }

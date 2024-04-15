@@ -54,7 +54,7 @@ namespace Interfaccia
                 {
                     //Stampo i servizi disponibili
                     Console.WriteLine("\nServizi disponibili:\n");
-                    foreach (Servizio s in istanza.VisualizzaServizi())
+                    foreach (Servizio s in istanza.GetListaServizi())
                     {
                         Console.WriteLine(s.ToString());
                     }
@@ -63,7 +63,7 @@ namespace Interfaccia
                     bool servizioTrovato = false;
 
                     //verifica se il servizio è presente
-                    foreach (Servizio s in istanza.VisualizzaServizi())
+                    foreach (Servizio s in istanza.GetListaServizi())
                     {
                         if (s.GetCodice().Equals(codiceServizio))
                         {

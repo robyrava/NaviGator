@@ -72,7 +72,8 @@ namespace Interfaccia
                         comando = new ComandoVisualizzaPrenotazioni();
                     if(parola.Equals("4"))
                         comando = new ComandoAggiungiServizio();
-                        
+                    if(parola.Equals("5"))
+                        comando = new ComandoCalcolaConto();                        
                 }
 
                 if(console == ElencoComandi.SERVIZIO_CABINA)

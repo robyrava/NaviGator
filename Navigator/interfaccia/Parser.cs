@@ -70,7 +70,7 @@ namespace Interfaccia
                     if(parola.Equals("3"))
                         comando = new ComandoVisualizzaPrenotazioni();
                     if(parola.Equals("4"))
-                        comando = new ComandoAggiungiServizio();
+                        comando = new ComandoAggiungiServizioPrenotazione();
                     if(parola.Equals("5"))
                         comando = new ComandoCalcolaConto();                        
                 }
@@ -95,13 +95,13 @@ namespace Interfaccia
                 {
                     if(parola.Equals("1"))
                         comando = new ComandoGestisciPortata();
-                /**
                     if(parola.Equals("2"))
-                        comando = new ComandoGestisciCabine();
+                        comando = new ComandoGestisciServizi();
+                /** 
                     if(parola.Equals("3"))
                         comando = new ComandoGestisciPrezzoCabine();
                     if(parola.Equals("4"))
-                        comando = new ComandoGestisciServizi();
+                        comando = new ComandoGestisciCabine();
                 */
                 }
                 if(console == ElencoComandi.GESTIONE_PORTATA)
@@ -110,6 +110,13 @@ namespace Interfaccia
                         comando = new ComandoAggiungiPortata();
                     if(parola.Equals("2"))
                         comando = new ComandoRimuoviPortata();
+                }
+                if(console == ElencoComandi.GESTIONE_SERVIZI)
+                {
+                    if(parola.Equals("1"))
+                        comando = new ComandoAggiungiServizio();
+                    if(parola.Equals("2"))
+                        comando = new ComandoRimuoviServizio();
                 }
 
                 if (parola.Equals("0"))

@@ -13,6 +13,7 @@ namespace Interfaccia
         public const int CHECK_IN_OUT = 5;
         public const int ADMIN = 6;
         public const int GESTIONE_PORTATA = 7;
+        public const int GESTIONE_SERVIZI = 8;
 
         
         
@@ -45,7 +46,7 @@ namespace Interfaccia
             { ComandoCheckInOut.codiceComando, ComandoCheckInOut.descrizioneComando},
             {ComandoServizioCabina.codiceComando, ComandoServizioCabina.descrizioneComando },
             {ComandoVisualizzaPrenotazioni.codiceComando, ComandoVisualizzaPrenotazioni.descrizioneComando},
-            {ComandoAggiungiServizio.codiceComando, ComandoAggiungiServizio.descrizioneComando},
+            {ComandoAggiungiServizioPrenotazione.codiceComando, ComandoAggiungiServizioPrenotazione.descrizioneComando},
             {ComandoCalcolaConto.codiceComando, ComandoCalcolaConto.descrizioneComando},
             { ComandoIndietro.codiceComando, ComandoIndietro.descrizioneComando }
         };
@@ -66,13 +67,20 @@ namespace Interfaccia
         private static readonly Dictionary<string, string> comandiValidiAdminConsole = new Dictionary<string, string>
         {
             {ComandoGestisciPortata.codiceComando, ComandoGestisciPortata.descrizioneComando},
-            
+            {ComandoGestisciServizi.codiceComando, ComandoGestisciServizi.descrizioneComando},
             { ComandoIndietro.codiceComando, ComandoIndietro.descrizioneComando }
         };
         private static readonly Dictionary<string, string> comandiValidiGestionePortataConsole = new Dictionary<string, string>
         {
             {ComandoAggiungiPortata.codiceComando, ComandoAggiungiPortata.descrizioneComando},
             {ComandoRimuoviPortata.codiceComando, ComandoRimuoviPortata.descrizioneComando},            
+            { ComandoIndietro.codiceComando, ComandoIndietro.descrizioneComando }
+        };
+
+        private static readonly Dictionary<string, string> comandiValidiGestioneServiziConsole = new Dictionary<string, string>
+        {
+            {ComandoAggiungiServizio.codiceComando, ComandoAggiungiServizio.descrizioneComando},
+            {ComandoRimuoviServizio.codiceComando, ComandoRimuoviServizio.descrizioneComando},
             { ComandoIndietro.codiceComando, ComandoIndietro.descrizioneComando }
         };
 
@@ -109,6 +117,8 @@ namespace Interfaccia
                     return comandiValidiCheckINOUTConsole;
                 case GESTIONE_PORTATA:
                     return comandiValidiGestionePortataConsole;
+                case GESTIONE_SERVIZI:
+                    return comandiValidiGestioneServiziConsole;
 
                 default:
                     return new Dictionary<string, string>();

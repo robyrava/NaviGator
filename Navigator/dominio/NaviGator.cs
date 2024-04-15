@@ -79,13 +79,13 @@ namespace Dominio
 
         public void CaricaServizi()
         {
-            Servizio s1 = new Servizio("01", "Spa: Massaggio rilassante", 50);
+            Servizio s1 = new Servizio(listaServizi.Count+1, "Spa: Massaggio rilassante", 50);
             listaServizi.Add(s1);
-            Servizio s2 = new Servizio("02", "Escursione: Alla scoperta di Malta", 150); 
+            Servizio s2 = new Servizio(listaServizi.Count+1, "Escursione: Alla scoperta di Malta", 150); 
             listaServizi.Add(s2);
-            Servizio s3 = new Servizio("03", "Snorkeling a Santorini", 70);
+            Servizio s3 = new Servizio(listaServizi.Count+1, "Snorkeling a Santorini", 70);
             listaServizi.Add(s3);
-            Servizio s4 = new Servizio("04", "Bagno con i delfini", 100);
+            Servizio s4 = new Servizio(listaServizi.Count+1, "Bagno con i delfini", 100);
             listaServizi.Add(s4);
         }
 
@@ -370,7 +370,36 @@ namespace Dominio
             return false;
         }
 
-        
+
+//******************Metodi UC11******************
+        public bool AggiungiServizio(string nome, double prezzo)
+        {
+            foreach (Servizio s in listaServizi)
+            {
+                if (s.GetDescrizione().Equals(nome, StringComparison.OrdinalIgnoreCase))
+                {
+                    return false;
+                }
+            }
+            Servizio nuovoServizio = new Servizio(listaServizi.Count+1, nome, prezzo);
+            listaServizi.Add(nuovoServizio);
+            return true;
+        }
+
+        public bool RimuoviServizio(int codice)
+        {
+            foreach (Servizio s in listaServizi)
+            {
+                if (s.GetCodice().Equals(codice))
+                {
+                    //rimuovo il servizio
+                    listaServizi.Remove(s);
+                    return true;
+                }
+            }
+
+            return false;
+        }
        
     }
 }

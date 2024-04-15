@@ -2,18 +2,18 @@ namespace Dominio
 {
     public class Servizio
     {
-        private string codice;
+        private int codice;
         private string descrizione;
         private double prezzo;
 
-        public Servizio(string codice, string descrizione, double prezzo)
+        public Servizio(int codice, string descrizione, double prezzo)
         {
             this.codice = codice;
             this.descrizione = descrizione;
             this.prezzo = prezzo;
         }
 
-        public string GetCodice()
+        public int GetCodice()
         {
             return codice;
         }

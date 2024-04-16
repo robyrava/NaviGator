@@ -97,6 +97,8 @@ namespace Interfaccia
                         comando = new ComandoGestisciPortata();
                     if(parola.Equals("2"))
                         comando = new ComandoGestisciServizi();
+                    if(parola.Equals("3"))
+                        comando=new ComandoGestisciCabine();
                 /** 
                     if(parola.Equals("3"))
                         comando = new ComandoGestisciPrezzoCabine();
@@ -117,6 +119,14 @@ namespace Interfaccia
                         comando = new ComandoAggiungiServizio();
                     if(parola.Equals("2"))
                         comando = new ComandoRimuoviServizio();
+                }
+
+                if(console == ElencoComandi.GESTIONE_CABINE)
+                {
+                    if (parola.Equals("1"))
+                        comando = new ComandoAbilitaCabina();
+                    if (parola.Equals("2"))
+                        comando = new ComandoDisabilitaCabina();
                 }
 
                 if (parola.Equals("0"))

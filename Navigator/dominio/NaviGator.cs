@@ -57,11 +57,11 @@ namespace Dominio
 
         public void CaricaCabine()
         {
-            Cabina c1 = new Cabina("1", "interna", 600);
+            Cabina c1 = new Cabina(elencoCabine.Count+1, "interna", 600);
             elencoCabine.Add(c1);
-            Cabina c2 = new Cabina("2", "oblo", 700);
+            Cabina c2 = new Cabina(elencoCabine.Count+1, "oblo", 700);
             elencoCabine.Add(c2);
-            Cabina c3 = new Cabina("3", "suite", 1000);
+            Cabina c3 = new Cabina(elencoCabine.Count+1, "suite", 1000);
             elencoCabine.Add(c3);
         }
         
@@ -97,7 +97,7 @@ namespace Dominio
             Prenotazione p1 = new Prenotazione("1");
             p1.SetCliente(c1);
             p1.SetDataInizio(new DateTime(2024,1, 1));
-            p1.SetDataFine(new DateTime(2024,1, 10));
+            p1.SetDataFine(new DateTime(2024,1, 7));
             p1.SetCabina(elencoCabine[1]);
             p1.GetStatoPrenotazione().GestioneStatoPrenotazione(p1,"Creato");
             elencoPrenotazioni.Add(p1);
@@ -106,7 +106,7 @@ namespace Dominio
             Prenotazione p2 = new Prenotazione("2");
             p2.SetCliente(c2);
             p2.SetDataInizio(new DateTime(2024,1, 1));
-            p2.SetDataFine(new DateTime(2024,1, 10));
+            p2.SetDataFine(new DateTime(2024,1, 7));
             p2.SetCabina(elencoCabine[0]);
             p2.GetStatoPrenotazione().GestioneStatoPrenotazione(p2,"Creato");
             elencoPrenotazioni.Add(p2);
@@ -149,7 +149,7 @@ namespace Dominio
             return true;
         }
 
-        public bool VerificaCabinaPrenotata(string codiceCabina, DateTime dataInizio, DateTime dataFine)
+        public bool VerificaCabinaPrenotata(int codiceCabina, DateTime dataInizio, DateTime dataFine)
         {
             bool disponibile = true;
             
@@ -276,7 +276,7 @@ namespace Dominio
         elencoPrenotazioni.Remove(p);
     }
 
-//******************Metodi UC7******************
+//******************Metodi UC7: CREA NUOVO ORDINE SERVIZIO IN CABINA******************
 
         public List<Cabina> GetCabine()
         {
@@ -287,7 +287,7 @@ namespace Dominio
         {
             foreach (Cabina c in GetCabine())
             {
-                if (codice.Equals(c.GetCodice(), StringComparison.OrdinalIgnoreCase))
+                if (codice.Equals(c.GetCodice()))
                 {
                     servizioCabinaInCorso = new ServizioInCabina(data, c);
                     break;
@@ -335,9 +335,62 @@ namespace Dominio
         {
             servizioCabinaInCorso = null;
         }
-        
 
-//******************Metodi UC10******************
+//******************Metodi UC8: GESTISCI CABINE******************
+        public List<Cabina> MostraCabineNonPrenotate(DateTime dataInizio, DateTime dataFine)
+        {
+            List<Cabina> cabineDisponibili = new List<Cabina>();
+            
+            //Se non ci sono prenotazioni aggiungo tutte le cabine disponibili
+            if(elencoPrenotazioni.Count == 0)
+            {
+                foreach (Cabina c in elencoCabine)
+                {
+                    if (c.GetDisponibilita())
+                        cabineDisponibili.Add(c);
+                }
+
+                return cabineDisponibili;
+            }
+
+            //Se ci sono prenotazioni verifico che la cabina non sia prenotata
+            foreach (Cabina c in elencoCabine)
+            {
+                if (c.GetDisponibilita() && VerificaCabinaPrenotata(c.GetCodice(), dataInizio, dataFine))
+                    cabineDisponibili.Add(c);
+            }
+
+            return cabineDisponibili;            
+        }
+
+        public bool ModificaCabina(int codice, bool disponibilita, List<int> codiciValidi)
+        {
+            foreach (Cabina c in elencoCabine)
+            {
+                if (c.GetCodice().Equals(codice) && codiciValidi.Contains(codice))
+                {
+                    c.SetDisponibilita(disponibilita);
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public List<Cabina> MostraCabineInManutenzione()
+        {
+            List<Cabina> cabineInManutenzione = new List<Cabina>();
+            foreach (Cabina c in elencoCabine)
+            {
+                if (!c.GetDisponibilita())
+                    cabineInManutenzione.Add(c);
+            }
+            return cabineInManutenzione;
+        }
+
+
+
+//******************Metodi UC10: GESTISCI PORTATA******************
         public string AggiornaMenu(string nome, double prezzo)
         {
             //Se la portata è già presente tra quelle non disponibili, la rendo disponibile. Senno la aggiungo
@@ -371,7 +424,7 @@ namespace Dominio
         }
 
 
-//******************Metodi UC11******************
+//******************Metodi UC11: GESTISCI SERVIZI******************
         public bool AggiungiServizio(string nome, double prezzo)
         {
             foreach (Servizio s in listaServizi)

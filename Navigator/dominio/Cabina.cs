@@ -2,19 +2,21 @@ namespace Dominio
 {
     public class Cabina
     {
-        private string codice;
+        private int codice;
         private string tipo;
         private double prezzo;
+        private bool disponibile;
 
-        public Cabina(string codice, string tipo, double prezzo)
+        public Cabina(int codice, string tipo, double prezzo)
         {
             this.codice = codice;
             this.tipo = tipo;
             this.prezzo = prezzo;
+            disponibile = true;
         }
 
         //Metodi GET
-        public string GetCodice()
+        public int GetCodice()
         {
             return codice;
         }
@@ -27,9 +29,20 @@ namespace Dominio
             return prezzo;
         }
 
+        public bool GetDisponibilita()
+        {
+            return disponibile;
+        }
+
+        public void SetDisponibilita(bool disponibile)
+        {
+            this.disponibile = disponibile;
+        }
+
+
         public override string ToString()
         {
-            return $"codice: {codice}\ntipo: {tipo}\nprezzo: {prezzo}\n";
+            return $"codice: {codice}\ttipo: {tipo}\tprezzo: {prezzo}";
         }
     }
 }

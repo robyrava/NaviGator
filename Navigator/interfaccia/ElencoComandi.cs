@@ -14,6 +14,7 @@ namespace Interfaccia
         public const int ADMIN = 6;
         public const int GESTIONE_PORTATA = 7;
         public const int GESTIONE_SERVIZI = 8;
+        public const int GESTIONE_CABINE = 9;
 
         
         
@@ -68,6 +69,7 @@ namespace Interfaccia
         {
             {ComandoGestisciPortata.codiceComando, ComandoGestisciPortata.descrizioneComando},
             {ComandoGestisciServizi.codiceComando, ComandoGestisciServizi.descrizioneComando},
+            {ComandoGestisciCabine.codiceComando, ComandoGestisciCabine.descrizioneComando},
             { ComandoIndietro.codiceComando, ComandoIndietro.descrizioneComando }
         };
         private static readonly Dictionary<string, string> comandiValidiGestionePortataConsole = new Dictionary<string, string>
@@ -81,6 +83,13 @@ namespace Interfaccia
         {
             {ComandoAggiungiServizio.codiceComando, ComandoAggiungiServizio.descrizioneComando},
             {ComandoRimuoviServizio.codiceComando, ComandoRimuoviServizio.descrizioneComando},
+            { ComandoIndietro.codiceComando, ComandoIndietro.descrizioneComando }
+        };
+
+        private static readonly Dictionary<string, string> comandiValidiGestioneCabineConsole = new Dictionary<string, string>
+        {
+            {ComandoAbilitaCabina.codiceComando, ComandoAbilitaCabina.descrizioneComando},
+            {ComandoDisabilitaCabina.codiceComando, ComandoDisabilitaCabina.descrizioneComando},
             { ComandoIndietro.codiceComando, ComandoIndietro.descrizioneComando }
         };
 
@@ -119,6 +128,8 @@ namespace Interfaccia
                     return comandiValidiGestionePortataConsole;
                 case GESTIONE_SERVIZI:
                     return comandiValidiGestioneServiziConsole;
+                case GESTIONE_CABINE:
+                    return comandiValidiGestioneCabineConsole;
 
                 default:
                     return new Dictionary<string, string>();

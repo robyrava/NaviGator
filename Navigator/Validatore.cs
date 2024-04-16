@@ -14,6 +14,22 @@ namespace Validazioni
             return true;
         }
 
+        //Metdo che verifica la validità del formato di dataF e verifica che tra dataI e dataF ci sia una differenza di 7 giorni
+        public static bool ConfrontaData(string dataI,string dataF)
+        {
+            if (!VerificaFormatoData(dataF))
+             return false;
+
+            DateTime dataInizio = DateTime.Parse(dataI);
+            DateTime dataFine = DateTime.Parse(dataF);
+
+            if (dataFine.Subtract(dataInizio).Days != 6)
+                return false;
+
+            return true;
+
+        }
+
         public static bool VerificaNome(string nome)
         {
             // Verifica che il nome contenga solo lettere e spazi

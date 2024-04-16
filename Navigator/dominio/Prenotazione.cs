@@ -19,7 +19,7 @@ namespace Dominio
             serviziRichiesti = new List<RichiestaServizio>();
         }
         
-        public bool IsDisponibile(string codiceCabina, DateTime dataInizio, DateTime dataFine)
+        public bool IsDisponibile(int codiceCabina, DateTime dataInizio, DateTime dataFine)
         {
             if (dataInizio > dataFine || dataInizio == dataFine)
             {

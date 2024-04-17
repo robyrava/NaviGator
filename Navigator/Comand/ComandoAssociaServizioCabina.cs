@@ -1,4 +1,5 @@
 using Dominio;
+using Validazioni;
 
 namespace Comand
 {
@@ -21,16 +22,22 @@ namespace Comand
         {
             Console.WriteLine("Inserisci il codice della cabina: ");
             string codice = Parser.GetInstance().Read();
-            Console.WriteLine();
+            //Verifico formato codice
+            if (!Validatore.VerificaCodice(codice))
+            {
+                Console.WriteLine("Errore: codice cabina non valido");
+                return;
+            }
+
             bool esiste = false;
             
             //verifico se la cabina esiste (è occupata)
             foreach (Cabina c in istanza.GetCabine())
             {
-                if (codice.Equals(c.GetCodice()))
+                if (int.Parse(codice).Equals(c.GetCodice()))
                 {
                     DateTime data = DateTime.Now;
-                    istanza.CreaServizioCabina(codice, data);
+                    istanza.CreaServizioCabina(int.Parse(codice), data);
                     esiste = true;
                     break;
                 }

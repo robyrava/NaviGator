@@ -59,13 +59,20 @@ namespace Comand
                         Console.WriteLine(s.ToString());
                     }
                     Console.WriteLine("Inserisci il codice del servizio da aggiungere");
+                    //Verifico formato codice 
                     string codiceServizio = Parser.GetInstance().Read();
+                    while (!Validatore.VerificaCodice(codiceServizio))
+                    {
+                        Console.WriteLine("Errore: Codice servizio non valido");
+                        codiceServizio = Parser.GetInstance().Read();
+                    }
+                        
                     bool servizioTrovato = false;
 
                     //verifica se il servizio è presente
                     foreach (Servizio s in istanza.GetListaServizi())
                     {
-                        if (s.GetCodice().Equals(codiceServizio))
+                        if (s.GetCodice().Equals(int.Parse(codiceServizio)))
                         {
                             string dataInizio = string.Empty;
 
@@ -92,7 +99,7 @@ namespace Comand
                     }
                     istanza.AnnullaPrenotazioneInCorso();
                     if(!servizioTrovato)
-                        Console.WriteLine("Codicd servizio non valido");
+                        Console.WriteLine("Codice servizio non valido");
                 }
             }
             else

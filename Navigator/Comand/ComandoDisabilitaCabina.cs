@@ -31,7 +31,7 @@ namespace Comand
             }
             Console.WriteLine("   Inserisci data fine manutenzione (YYYY-MM-dd): ");
             string dataF = Parser.GetInstance().Read();
-            while (!Validatore.VerificaDataFine(dataF))
+            while (!Validatore.VerificaDataFine(dataF,dataI))
             {
                 Console.WriteLine("   Data non valida!\n   Inserisci data fine manutenzione (YYYY-MM-dd): ");
                 dataF = Parser.GetInstance().Read();

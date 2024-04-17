@@ -40,7 +40,7 @@ namespace Comand
                 string input = Parser.GetInstance().Read();
                 int codicePortata = int.Parse(input);
 
-                if (codicePortata.Equals("0"))
+                if (codicePortata.Equals(0))
                     break;
 
                 bool portataDisponibile = false;

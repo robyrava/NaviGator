@@ -28,13 +28,17 @@ namespace Validazioni
 
         }
 
-        public static bool VerificaDataFine(string data)
+        public static bool VerificaDataFine(string data, string dataInizio)
         {
             if(!VerificaFormatoData(data))
                 return false;
             
             //Verifica che il giorno fine sia un sabato
             if (DateTime.Parse(data).DayOfWeek != DayOfWeek.Saturday)
+                return false;
+
+            //verifico che sia maggiore di dataInizio
+            if (DateTime.Parse(data) <= DateTime.Parse(dataInizio))
                 return false;
 
             return true;

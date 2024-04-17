@@ -37,7 +37,7 @@ namespace Comand
 
             Console.WriteLine("Inserisci la data di fine del periodo di variazione(YYYY-MM-dd): ");
             string dataF = Parser.GetInstance().Read();
-            while (!Validatore.VerificaDataFine(dataF))
+            while (!Validatore.VerificaDataFine(dataF,dataI))
             {
                 Console.WriteLine("   Data non valida!\nRicorda le crociere terminano di Sabato\nInserisci la data di fine del periodo di variazione(YYYY-MM-dd): ");
                 dataF = Parser.GetInstance().Read();
@@ -51,7 +51,7 @@ namespace Comand
                 var = Parser.GetInstance().Read();
             }
 
-            if(istanza.AggiungiPeriodoVariazione(DateTime.Parse(dataI), DateTime.Parse(dataF), float.Parse(var)))
+            if(istanza.AggiungiPeriodoVariazione(DateTime.Parse(dataI), DateTime.Parse(dataF), int.Parse(var)))
                 Console.WriteLine("\nPeriodo di variazione aggiunto con successo!");
             else
                 Console.WriteLine("\nErrore: periodo variazione già presente!");

@@ -4,6 +4,6 @@ namespace Stategy
 {
     public interface IVariazioneStrategy
     {
-        public float ApplicaVariazione(List<PeriodoVariazione> periodoVariazione, string dataInizio, string dataFine);
+        public double ApplicaVariazione(List<PeriodoVariazione> periodoVariazione, DateTime dataInizio, DateTime dataFine, double prezzoBase);
     }
 }

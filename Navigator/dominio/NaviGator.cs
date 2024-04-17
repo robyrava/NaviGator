@@ -1,3 +1,5 @@
+using Stategy;
+
 namespace Dominio
 {
     public class NaviGator
@@ -99,7 +101,7 @@ namespace Dominio
             p1.SetCliente(c1);
             p1.SetDataInizio(new DateTime(2024,1, 1));
             p1.SetDataFine(new DateTime(2024,1, 6));
-            p1.SetCabina(elencoCabine[1]);
+            p1.SetCabina(elencoCabine[1]); //oblo
             p1.GetStatoPrenotazione().GestioneStatoPrenotazione(p1,"Creato");
             elencoPrenotazioni.Add(p1);
 
@@ -108,7 +110,7 @@ namespace Dominio
             p2.SetCliente(c2);
             p2.SetDataInizio(new DateTime(2024,1, 1));
             p2.SetDataFine(new DateTime(2024,1, 6));
-            p2.SetCabina(elencoCabine[0]);
+            p2.SetCabina(elencoCabine[0]); //interna
             p2.GetStatoPrenotazione().GestioneStatoPrenotazione(p2,"Creato");
             elencoPrenotazioni.Add(p2);
         }
@@ -121,20 +123,37 @@ namespace Dominio
         {
             return elencoPrenotazioni;
         }
-        public List<Cabina> VisualizzaCabine(string tipologia, DateTime dataInizio, DateTime dataFine)
+        public List<Cabina> GetCabineDisponibili(string tipologia, DateTime dataInizio, DateTime dataFine, bool variazionePrezzo = false)
         {
             
             List<Cabina> cabineDisponibili = new List<Cabina>();
+            Cabina tmpCabina;
 
             foreach (Cabina c in elencoCabine)
             {
-                if (tipologia.Equals(c.GetTipo()) && IsCabinaDisponibile(c, dataInizio, dataFine))
+                if(variazionePrezzo)
                 {
-                    cabineDisponibili.Add(c);
+                    if (tipologia.Equals(c.GetTipo()) && IsCabinaDisponibile(c, dataInizio, dataFine))
+                    {
+                        tmpCabina = new Cabina(c.GetCodice(), c.GetTipo(), c.GetPrezzo());
+                        tmpCabina.SetPrezzo(GetVariazionePrezzoCabina(c.GetPrezzo(), dataInizio, dataFine));
+                        cabineDisponibili.Add(tmpCabina);
+                    }
                 }
+                else
+                    if (tipologia.Equals(c.GetTipo()) && IsCabinaDisponibile(c, dataInizio, dataFine))
+                        cabineDisponibili.Add(c);     
             }
 
             return cabineDisponibili;
+        }
+
+        private double GetVariazionePrezzoCabina(double prezzo, DateTime dataInizio, DateTime dataFine)
+        {
+            VariazioneStrategyFactory fs = VariazioneStrategyFactory.GetInstance();
+            IVariazioneStrategy vs = fs.GetVariazioneStrategy();
+
+            return vs.ApplicaVariazione(listaPeriodiVariazione, dataInizio, dataFine,  prezzo); 
         }
 
         private bool IsCabinaDisponibile(Cabina cabina, DateTime dataInizio, DateTime dataFine)
@@ -168,52 +187,70 @@ namespace Dominio
             return disponibile;
         }
 
-        public void RegistraCabina(string codice)
+        public bool RegistraCabina(int codice, string tipologia, DateTime dataInizio, DateTime dataFine)
         {
-            prenotazioneInCorso = new Prenotazione(counter.ToString());
             
-            foreach (Cabina c in elencoCabine)
+
+            //Verifico che il codice appartiene ad una cabina esistente
+            foreach (Cabina c in GetCabineDisponibili(tipologia, dataInizio, dataFine,true))
             {
                 if (codice.Equals(c.GetCodice()))
                 {
+                    //Creo nuova Prenotazione
+                    prenotazioneInCorso = new Prenotazione(counter.ToString());
+                    
                     prenotazioneInCorso.SetCabina(c);
+                    prenotazioneInCorso.SetDataInizio(dataInizio);
+                    prenotazioneInCorso.SetDataFine(dataFine);
+                    counter++;
+                    return true;
                 }
             }
-            counter++;
+            
+            return false;
+            
         }
 
-        public void RegistraCliente(string nome, string cognome, string codiceFiscale, string documento, string numeroTelefono, string numeroCarta)
+        public string RegistraCliente(string nome, string cognome, string codiceFiscale, string documento, string numeroTelefono, string numeroCarta)
         {
-            Cliente? c = elencoClienti.FirstOrDefault(cliente => cliente.GetCodiceFiscale() == codiceFiscale); // se non trova nessun cliente con quel codice fiscale, c sarà null
-
-            if (c == null)
-            {
-                c = new Cliente(nome, cognome, numeroTelefono, codiceFiscale, documento, numeroCarta);
-                elencoClienti.Add(c);
-            }
-
+            
             //verifico che la cabina sia stata registrata
             if (prenotazioneInCorso == null)
-                throw new Exception("Devi registrare una cabina prima di procedere con la prenotazione");
+                return "\nErrore: Nessuna cabina registrata";
 
+            Cliente c = new Cliente(nome, cognome, numeroTelefono, codiceFiscale, documento, numeroCarta);
+            
+            //aggiorno la prenotazione in corso
             prenotazioneInCorso.SetCliente(c);
+
+            return "\nCliente registrato con sucesso";
+          
+
+            
         }
 
-        public void RegistraPrenotazione(DateTime dataInizio, DateTime dataFine)
+        public bool RegistraPrenotazione()
         {
 
             //verifico che la cabina sia stata registrata
             if(prenotazioneInCorso == null)
-                throw new Exception("Devi registrare una cabina prima di procedere con la prenotazione");
+                return false;
+
             //verifico siano stati registrati i dati del cliente
             if(prenotazioneInCorso.GetCliente() == null)
-                throw new Exception("Devi registrare un cliente prima di procedere con la prenotazione");
+                return false;
 
-            prenotazioneInCorso.SetDataInizio(dataInizio);
-            prenotazioneInCorso.SetDataFine(dataFine);
+            //Cambio stato prenotazione
             prenotazioneInCorso.GetStatoPrenotazione().GestioneStatoPrenotazione(prenotazioneInCorso,"Creato");
+            
+            //aggiungo prenotazione all'elenco
             elencoPrenotazioni.Add(prenotazioneInCorso);
+            
+            //aggiungo il cliente all'elenco clienti
+            elencoClienti.Add(prenotazioneInCorso.GetCliente());
             counter++;
+
+            return true;
         }
 
         public bool AnnullaPrenotazioneInCorso()
@@ -284,7 +321,7 @@ namespace Dominio
             return elencoCabine;
         }
 
-        public void CreaServizioCabina(string codice, DateTime data)
+        public void CreaServizioCabina(int codice, DateTime data)
         {
             foreach (Cabina c in GetCabine())
             {
@@ -392,8 +429,8 @@ namespace Dominio
 //******************Metodi UC9: GESTISCI PREZZO CABINE******************
        public void CaricaPeriodoVariazione()
        {
-            listaPeriodiVariazione.Add(new PeriodoVariazione(new DateTime(2024, 6, 3), new DateTime(2024, 9, 7), 0.4f));
-            listaPeriodiVariazione.Add(new PeriodoVariazione(new DateTime(2024, 12, 2), new DateTime(2025, 3, 1), -0.2f));
+            listaPeriodiVariazione.Add(new PeriodoVariazione(new DateTime(2024, 6, 3), new DateTime(2024, 9, 7), 40));
+            listaPeriodiVariazione.Add(new PeriodoVariazione(new DateTime(2024, 12, 2), new DateTime(2025, 3, 1), -20));
             
        } 
         public List<PeriodoVariazione> GetListaPeriodiVariazione()
@@ -401,7 +438,7 @@ namespace Dominio
             return listaPeriodiVariazione;
         }
 
-        public bool AggiungiPeriodoVariazione(DateTime dataI, DateTime dataF, float variazione)
+        public bool AggiungiPeriodoVariazione(DateTime dataI, DateTime dataF, int variazione)
         {
             bool trovato = false;
             

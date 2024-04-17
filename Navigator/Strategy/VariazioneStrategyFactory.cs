@@ -10,8 +10,7 @@ namespace Stategy
         {
             if(singleton == null)
                 singleton = new VariazioneStrategyFactory();
-            else
-                Console.WriteLine("Istanza già creata");
+            
             return singleton;
         }
 

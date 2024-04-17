@@ -5,17 +5,18 @@ namespace Stategy
 {
     public class VariazioneStandardStrategy : IVariazioneStrategy
     {
-        public float ApplicaVariazione(List<PeriodoVariazione> pv, string dataInizio, string dataFine)
+        public double ApplicaVariazione(List<PeriodoVariazione> pv, DateTime dataInizio, DateTime dataFine, double prezzoBase)
         {
-            float variazione = 0.0f;
             foreach (PeriodoVariazione p in pv)
             {
-                int giorniVariazione = p.CalcolaGiorniVariazione(DateTime.Parse(dataInizio), DateTime.Parse(dataFine));
-                if(giorniVariazione != 0)
-                    variazione += giorniVariazione * p.GetVariazione();
+                if (!p.IsDisponibile(dataInizio, dataFine))
+                {
+                        prezzoBase += prezzoBase * p.GetVariazione()/100;          
+                        break;
+                }
             }
 
-            return variazione;
+            return prezzoBase;
         }
     }
 }

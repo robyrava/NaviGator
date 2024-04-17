@@ -21,24 +21,11 @@ namespace Dominio
         
         public bool IsDisponibile(int codiceCabina, DateTime dataInizio, DateTime dataFine)
         {
-            if (dataInizio > dataFine || dataInizio == dataFine)
-            {
+            if (cabina != null && cabina.GetCodice().Equals(codiceCabina) && dataInizio == this.dataInizio)
                 return false;
-            }
-            if (cabina != null && cabina.GetCodice().Equals(codiceCabina))
-            {
-                if ((dataInizio > this.dataInizio && dataInizio < this.dataFine) ||
-                    (dataFine > this.dataInizio && dataFine < this.dataFine) ||
-                    (dataInizio < this.dataInizio && dataFine > this.dataFine) ||
-                    (dataInizio == this.dataInizio) ||
-                    (dataFine == this.dataFine) ||
-                    (dataInizio == this.dataFine) ||
-                    (dataFine == this.dataInizio))
-                {
-                    return false;
-                }
-            }
+            
             return true;
+
         }
 
         //MEtodi GET

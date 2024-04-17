@@ -4,9 +4,9 @@ namespace Dominio
     {
         private DateTime dataInizio;
         private DateTime dataFine;
-        private float variazione;
+        private int variazione;
 
-        public PeriodoVariazione(DateTime dataInizio, DateTime dataFine, float variazione)
+        public PeriodoVariazione(DateTime dataInizio, DateTime dataFine, int variazione)
         {
             this.dataInizio = dataInizio;
             this.dataFine = dataFine;
@@ -32,26 +32,38 @@ namespace Dominio
             this.dataFine = dataFine;
         }
 
-        public float GetVariazione()
+        public int GetVariazione()
         {
-            return variazione;
+            return variazione; 
         }
 
-        public void SetVariazione(float variazione)
+        public void SetVariazione(int variazione)
         {
             this.variazione = variazione;
         }
 
-        public int CalcolaGiorniVariazione(DateTime dataInizio, DateTime dataFine)
-        {
-            return 1;
-        }
-
         public bool IsDisponibile(DateTime dataInizio, DateTime dataFine)
         {
-            //Se le date di inizio e fine coincidono con quelle del periodo di variazione ritorna falso
-            if (dataInizio == this.dataInizio && dataFine == this.dataFine)
-                return false;
+            //devo verificare che dataInizio e dataFine siano comprese tra this.dataInizio e this.dataFine facendo attenzione ai casi in cui le varizioni vanno da un anno all'altro
+            if (dataInizio.Year == dataFine.Year)
+            {
+                if (dataInizio >= this.dataInizio && dataFine <= this.dataFine)
+                    return false;
+            }
+            else
+            {
+                if (dataInizio.Year == this.dataInizio.Year)
+                {
+                    if (dataInizio >= this.dataInizio && dataInizio <= this.dataFine)
+                        return false;
+                }
+                else if (dataFine.Year == this.dataFine.Year)
+                {
+                    if (dataFine >= this.dataInizio && dataFine <= this.dataFine)
+                        return false;
+                }
+            }
+
 
             return true;
         }

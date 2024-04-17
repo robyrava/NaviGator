@@ -7,6 +7,7 @@ namespace Dominio
         private double prezzo;
         private bool disponibile;
 
+        public Cabina(){}
         public Cabina(int codice, string tipo, double prezzo)
         {
             this.codice = codice;
@@ -27,6 +28,11 @@ namespace Dominio
         public double GetPrezzo()
         {
             return prezzo;
+        }
+
+        public void SetPrezzo(double prezzo)
+        {
+            this.prezzo = prezzo;
         }
 
         public bool GetDisponibilita()

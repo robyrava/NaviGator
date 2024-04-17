@@ -19,29 +19,18 @@ namespace Comand
 
         public void Esegui(NaviGator istanza)
         {
-            try
+            
+            if(istanza.RegistraPrenotazione())
             {
-                Console.WriteLine("   Inserisci nuovamente data inizio (YYYY-MM-dd): ");
-                string dataI = Parser.GetInstance().Read();
-                Console.WriteLine("   Inserisci nuovamente data fine (YYYY-MM-dd): ");
-                string dataF = Parser.GetInstance().Read();
+                Console.WriteLine($"\nIl cliente: {istanza.GetPrenotazioneInCorso().GetCliente().GetNome()} {istanza.GetPrenotazioneInCorso().GetCliente().GetCognome()}\nha effettuato la prenotazione dal {istanza.GetPrenotazioneInCorso().GetDataInizio()} al {istanza.GetPrenotazioneInCorso().GetDataFine()}" 
+                + $"\nDetagli Cabina:\n {istanza.GetPrenotazioneInCorso().GetCabina().ToString()}");
                 
-                if (istanza.VerificaCabinaPrenotata(istanza.GetPrenotazioneInCorso().GetCabina().GetCodice(), DateTime.Parse(dataI), DateTime.Parse(dataF)))
-                {
-                    istanza.RegistraPrenotazione(DateTime.Parse(dataI), DateTime.Parse(dataF));
-                    Console.WriteLine("\nIl cliente:\n" + istanza.GetPrenotazioneInCorso().GetCliente().ToString() + "ha effettuato la prenotazione!");
-                    foreach (Prenotazione p in istanza.VisualizzaPrenotazioni())
-                    {
-                        Console.WriteLine(p.ToString());
-                    }
-                }
-                else
-                    Console.WriteLine("\nAttenzione, le date inserite non sono disponibili!");
+                //annullo prenotazione in corso
+                istanza.AnnullaPrenotazioneInCorso() ;
+                
             }
-            catch (Exception)
-            {
-                Console.WriteLine("\nATTENZIONE! Dati inseriti non validi!");
-            }
+            else
+                Console.WriteLine("\nAttenzione, cabina o cliente non registrati!");
         }
     }
 

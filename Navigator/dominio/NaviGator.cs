@@ -1,5 +1,3 @@
-using System.Security.Cryptography;
-
 namespace Dominio
 {
     public class NaviGator
@@ -17,6 +15,7 @@ namespace Dominio
         private ServizioInCabina? servizioCabinaInCorso;
         private List<ServizioInCabina> elencoServiziCabina;
         private List<Servizio> listaServizi;
+        private List<PeriodoVariazione> listaPeriodiVariazione;
     
         private int counter;
     
@@ -28,11 +27,13 @@ namespace Dominio
             elencoPortate = new List<Portata>();
             elencoServiziCabina = new List<ServizioInCabina>();
             listaServizi = new List<Servizio>();
+            listaPeriodiVariazione = new List<PeriodoVariazione>();
             prenotazioneInCorso = null;
             counter = 1;
             CaricaCabine();
             CaricaPortate();
             CaricaServizi();
+            CaricaPeriodoVariazione();
 
             //Da rimuovere
             CaricaPrenotazioni();
@@ -97,7 +98,7 @@ namespace Dominio
             Prenotazione p1 = new Prenotazione("1");
             p1.SetCliente(c1);
             p1.SetDataInizio(new DateTime(2024,1, 1));
-            p1.SetDataFine(new DateTime(2024,1, 7));
+            p1.SetDataFine(new DateTime(2024,1, 6));
             p1.SetCabina(elencoCabine[1]);
             p1.GetStatoPrenotazione().GestioneStatoPrenotazione(p1,"Creato");
             elencoPrenotazioni.Add(p1);
@@ -106,7 +107,7 @@ namespace Dominio
             Prenotazione p2 = new Prenotazione("2");
             p2.SetCliente(c2);
             p2.SetDataInizio(new DateTime(2024,1, 1));
-            p2.SetDataFine(new DateTime(2024,1, 7));
+            p2.SetDataFine(new DateTime(2024,1, 6));
             p2.SetCabina(elencoCabine[0]);
             p2.GetStatoPrenotazione().GestioneStatoPrenotazione(p2,"Creato");
             elencoPrenotazioni.Add(p2);
@@ -388,6 +389,41 @@ namespace Dominio
             return cabineInManutenzione;
         }
 
+//******************Metodi UC9: GESTISCI PREZZO CABINE******************
+       public void CaricaPeriodoVariazione()
+       {
+            listaPeriodiVariazione.Add(new PeriodoVariazione(new DateTime(2024, 6, 3), new DateTime(2024, 9, 7), 0.4f));
+            listaPeriodiVariazione.Add(new PeriodoVariazione(new DateTime(2024, 12, 2), new DateTime(2025, 3, 1), -0.2f));
+            
+       } 
+        public List<PeriodoVariazione> GetListaPeriodiVariazione()
+        {
+            return listaPeriodiVariazione;
+        }
+
+        public bool AggiungiPeriodoVariazione(DateTime dataI, DateTime dataF, float variazione)
+        {
+            bool trovato = false;
+            
+            if(GetListaPeriodiVariazione().Count == 0)
+                trovato = false;
+            else             
+                foreach (PeriodoVariazione pv in GetListaPeriodiVariazione()) 
+                {
+                    if (!pv.IsDisponibile(dataI, dataF)) 
+                    {
+                        trovato = true;
+                    }
+                }
+            
+            if(!trovato)
+            {
+                GetListaPeriodiVariazione().Add(new PeriodoVariazione(dataI, dataF, variazione));
+                return true;
+            }
+
+            return false;
+        }
 
 
 //******************Metodi UC10: GESTISCI PORTATA******************

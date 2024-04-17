@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lsMzGiEZJEzM8hGI+oSajiXLRfKsdXjLaBClkWnPomxNnsWY60X66vm781KdG151HKl1YNKOa4w+jn3ngINBTA==",
+  "dgSpecHash": "vQDAOpC5y4HXFKi2u6ONX/05AoUlzAgbFKeQi40vdfOEsPuoS3IXdVaOX/VO7vsjODXz4iwr/n0HEQx2Vjt+8Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\rober\\OneDrive\\Desktop\\NaviGator\\NaviGator\\NaviGator.Test\\NaviGator.Test.csproj",
+  "projectFilePath": "C:\\Users\\rober\\OneDrive\\Desktop\\Progetto\\NaviGator.Test\\NaviGator.Test.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rober\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
     "C:\\Users\\rober\\.nuget\\packages\\microsoft.codecoverage\\17.8.0\\microsoft.codecoverage.17.8.0.nupkg.sha512",

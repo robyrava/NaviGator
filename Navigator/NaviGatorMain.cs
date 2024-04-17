@@ -1,4 +1,4 @@
-﻿using Interfaccia;
+﻿using Comand;
 class NaviGatorMain
 {
     static void Main()

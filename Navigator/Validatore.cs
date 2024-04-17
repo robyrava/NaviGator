@@ -2,33 +2,46 @@ namespace Validazioni
 {
     public static class Validatore
     {
-        // Verifica che la data sia nel formato AAAA-MM-GG e sia una data valida
         public static bool VerificaFormatoData(string data)
         {
+            // Verifica che la data sia nel formato AAAA-MM-GG 
             if (!System.Text.RegularExpressions.Regex.IsMatch(data, @"^\d{4}-\d{2}-\d{2}$"))
                 return false;
 
+            //sia una data valida: es: 2024-02-30 non è una data valida
             if (!DateTime.TryParse(data, out DateTime _))
                 return false;
-                
+
             return true;
         }
 
-        //Metdo che verifica la validità del formato di dataF e verifica che tra dataI e dataF ci sia una differenza di 7 giorni
-        public static bool ConfrontaData(string dataI,string dataF)
+        public static bool VerificaDataInizio(string data)
         {
-            if (!VerificaFormatoData(dataF))
-             return false;
-
-            DateTime dataInizio = DateTime.Parse(dataI);
-            DateTime dataFine = DateTime.Parse(dataF);
-
-            if (dataFine.Subtract(dataInizio).Days != 6)
+            if(!VerificaFormatoData(data))
+                return false;
+            
+            //Verifica che il giorno sia un lunedi
+            if (DateTime.Parse(data).DayOfWeek != DayOfWeek.Monday)
                 return false;
 
             return true;
 
         }
+
+        public static bool VerificaDataFine(string data)
+        {
+            if(!VerificaFormatoData(data))
+                return false;
+            
+            //Verifica che il giorno fine sia un sabato
+            if (DateTime.Parse(data).DayOfWeek != DayOfWeek.Saturday)
+                return false;
+
+            return true;
+
+        }
+
+        
 
         public static bool VerificaNome(string nome)
         {
@@ -39,8 +52,17 @@ namespace Validazioni
             return true;
         }
 
-        public static bool VerificaPrezzo(string prezzo)
+        public static bool VerificaPrezzo(string prezzo, bool negativo = false)
         {
+            if (negativo)
+            {
+                // Verifica che il prezzo sia un numero intero positivo o negativo
+                if (!System.Text.RegularExpressions.Regex.IsMatch(prezzo, @"^-?\d+$"))
+                    return false;
+                else 
+                    return true;    
+            }
+
             // Verifica che il prezzo sia un numero decimale positivo
             if (!System.Text.RegularExpressions.Regex.IsMatch(prezzo, @"^\d+(\.\d+)?$"))
                 return false;

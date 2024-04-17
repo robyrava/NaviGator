@@ -97,7 +97,7 @@ namespace NaviGator.Test
             naviGator.RegistraCliente("Pippo", "Franco", "AQ12SD34DE12", "AZ1234567", "3324343434", "4050987845464049");
             naviGator.RegistraPrenotazione(DateTime.Parse("2024-03-11"), DateTime.Parse("2024-03-18"));
             naviGator.CreaServizioCabina("1", DateTime.Parse("2022-03-30"));
-            Portata portata = new Portata("Tiramisu", true, 1, "01");
+            Portata portata = new Portata("Tiramisu", true, 1, 1);
         
             //Act
             naviGator.GetServizioCabinaInCorso().RegistraPortata(portata, 1);
@@ -116,7 +116,7 @@ namespace NaviGator.Test
             naviGator.RegistraCliente("Pippo", "Franco", "AQ12SD34DE12", "AZ1234567", "3324343434", "4050987845464049");
             naviGator.RegistraPrenotazione(DateTime.Parse("2024-03-11"), DateTime.Parse("2024-03-18"));
             naviGator.CreaServizioCabina("1", DateTime.Parse("2022-03-30"));
-            Portata portata = new Portata("Tiramisu", true, 1, "01");
+            Portata portata = new Portata("Tiramisu", true, 1, 1);
             naviGator.GetServizioCabinaInCorso().RegistraPortata(portata, 1);
         
             //Act

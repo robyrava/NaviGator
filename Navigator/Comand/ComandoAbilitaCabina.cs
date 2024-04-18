@@ -40,7 +40,7 @@ namespace Comand
             }
 
             //Aabilito la cabina
-            if(istanza.ModificaCabina(int.Parse(codice), true, codiciValidi))
+            if(istanza.AbilitaDisabilitaCabina(int.Parse(codice), true, codiciValidi))
             {
                 Console.WriteLine("\nCabina abilitata con successo!");
             }

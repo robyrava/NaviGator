@@ -29,6 +29,7 @@ namespace Comand
                 Console.WriteLine("   Data non valida!\nInserisci data inizio manutenzione (YYYY-MM-dd): ");
                 dataI = Parser.GetInstance().Read();
             }
+            
             Console.WriteLine("   Inserisci data fine manutenzione (YYYY-MM-dd): ");
             string dataF = Parser.GetInstance().Read();
             while (!Validatore.VerificaDataFine(dataF,dataI))
@@ -38,11 +39,17 @@ namespace Comand
             }
             
             //Mostro le cabine non Prenotate per la settimana selezionata
-            Console.WriteLine("\nCabine non prenotate per la settimana selezionata: ");
+            Console.WriteLine("\nCabine non prenotate per il periodo selezionato: ");
             foreach (Cabina c in istanza.MostraCabineNonPrenotate(DateTime.Parse(dataI), DateTime.Parse(dataF)))
             {
                 Console.WriteLine(c.ToString());
                 codiciValidi.Add(c.GetCodice());
+            }
+
+            if(codiciValidi.Count == 0)
+            {
+                Console.WriteLine("\nNon ci sono cabine disponibili per il periodo selezionato!");
+                return;
             }
 
             //Richiedo di inserire il codice della cabina da disabilitare
@@ -55,7 +62,7 @@ namespace Comand
             }
 
             //Disabilito la cabina
-            if(istanza.ModificaCabina(int.Parse(codice), false, codiciValidi))
+            if(istanza.AbilitaDisabilitaCabina(int.Parse(codice), false, codiciValidi))
             {
                 Console.WriteLine("\nCabina disabilitata con successo!");
             }

@@ -133,7 +133,7 @@ namespace Dominio
             {
                 if(variazionePrezzo)
                 {
-                    if (tipologia.Equals(c.GetTipo()) && IsCabinaDisponibile(c, dataInizio, dataFine))
+                    if (tipologia.Equals(c.GetTipo()) && IsCabinaDisponibile(c, dataInizio, dataFine) && c.GetDisponibilita())
                     {
                         tmpCabina = new Cabina(c.GetCodice(), c.GetTipo(), c.GetPrezzo());
                         tmpCabina.SetPrezzo(GetVariazionePrezzoCabina(c.GetPrezzo(), dataInizio, dataFine));
@@ -141,7 +141,7 @@ namespace Dominio
                     }
                 }
                 else
-                    if (tipologia.Equals(c.GetTipo()) && IsCabinaDisponibile(c, dataInizio, dataFine))
+                    if (tipologia.Equals(c.GetTipo()) && IsCabinaDisponibile(c, dataInizio, dataFine) && c.GetDisponibilita())
                         cabineDisponibili.Add(c);     
             }
 
@@ -401,7 +401,7 @@ namespace Dominio
             return cabineDisponibili;            
         }
 
-        public bool ModificaCabina(int codice, bool disponibilita, List<int> codiciValidi)
+        public bool AbilitaDisabilitaCabina(int codice, bool disponibilita, List<int> codiciValidi)
         {
             foreach (Cabina c in elencoCabine)
             {

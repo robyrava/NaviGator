@@ -77,10 +77,11 @@ namespace Comand
                        
                         if (sc.GetCabina().GetCodice().Equals(istanza.GetPrenotazioneInCorso().GetCabina().GetCodice()))
                         {
-                            foreach (Portata po in sc.GetOrdineInCorso().GetQuantitaPortate())
+                            foreach (QuantitaPortata po in sc.GetOrdineInCorso().GetQuantitaPortate())
                             {
                                 haServiziInCabina = true;
-                                Console.WriteLine(po.ToString() + $" Quantità: {sc.GetOrdineInCorso().GetQuantitaPortate().Count}");
+
+                                Console.WriteLine(po.ToString() + $"\tQuantità: {po.GetQuantita()}");
                             }
                         }                        
                     }
@@ -100,7 +101,7 @@ namespace Comand
             }
             else
             {
-                Console.WriteLine("\nErrore: Il Cliente deve prima effettuare il check-out\n");
+                Console.WriteLine("\nErrore: nessun cliente corrispondente trovato in fase di check-out\n");
             }
 
 

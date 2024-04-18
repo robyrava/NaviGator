@@ -1,4 +1,5 @@
 using Dominio;
+using Validazioni;
 
 namespace Comand
 {
@@ -34,12 +35,15 @@ namespace Comand
                     Console.WriteLine(p.ToString());
                 }
 
-                //AGGIUNGERE VALIDAZIONE
-
                 Console.WriteLine("\nInserisci il codice della portata da ordinare (0 per terminare): ");
                 string input = Parser.GetInstance().Read();
-                int codicePortata = int.Parse(input);
+                while(!Validatore.VerificaCodice(input))
+                {
+                    Console.WriteLine("Codice non valido. Reinserire il codice della portata da ordinare (0 per terminare): ");
+                    input = Parser.GetInstance().Read();
+                }
 
+                int codicePortata = int.Parse(input);
                 if (codicePortata.Equals(0))
                     break;
 
@@ -49,18 +53,18 @@ namespace Comand
                 {
                     if (codicePortata.Equals(p.GetCodice()))
                     {
-                        Console.WriteLine("Inserisci la quantita: ");
+                        Console.WriteLine("Inserisci la quantita (max 4): ");
                         string quantita = Parser.GetInstance().Read();
-                        if (int.TryParse(quantita, out int iq))
+                        while (!Validatore.VerificaQuantita(quantita))
                         {
-                            istanza.GetServizioCabinaInCorso().RegistraPortata(p, iq);
-                            Console.WriteLine("\nPortata inserita con successo all'ordine");
-                            ordineCreato = true;
+                            Console.WriteLine("Quantita non valida. Reinserire la quantita (max 4): ");
+                            quantita = Parser.GetInstance().Read();
                         }
-                        else
-                        {
-                            Console.WriteLine("Quantita inserita non valida");
-                        }
+
+                        istanza.GetServizioCabinaInCorso().RegistraPortata(p, int.Parse(quantita));
+                        Console.WriteLine("\nPortata inserita con successo all'ordine");
+                        ordineCreato = true;
+
                         portataDisponibile = true;
                         break;
                     }

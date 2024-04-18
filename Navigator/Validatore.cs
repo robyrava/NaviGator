@@ -83,5 +83,14 @@ namespace Validazioni
             return true;
         }
 
+        public static bool VerificaQuantita(string quantita)
+        {
+            // Verifica che la quantita sia un numero intero positivo, maggiore di 0 e minore di 5
+            if (!System.Text.RegularExpressions.Regex.IsMatch(quantita, @"^[1-4]$"))
+                return false;
+            
+            return true;
+        }
+
     }
 }

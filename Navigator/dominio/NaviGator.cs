@@ -526,6 +526,20 @@ namespace Dominio
 
             return false;
         }
+
+//-----------------------------------
+
+        public Cabina? GetCabina(int codice)
+        {
+            foreach (Cabina c in GetCabine())
+            {
+                if (c.GetCodice().Equals(codice))
+                {
+                    return c;
+                }
+            }
+            return null;
+        }
        
     }
 }

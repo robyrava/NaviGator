@@ -28,8 +28,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\rober\\OneDrive\\Desktop\\Progetto\\Navigator\\NaviGator.csproj": {
-                "projectPath": "C:\\Users\\rober\\OneDrive\\Desktop\\Progetto\\Navigator\\NaviGator.csproj"
+              "C:\\Users\\rober\\OneDrive\\Desktop\\Progetto\\NaviGator\\NaviGator.csproj": {
+                "projectPath": "C:\\Users\\rober\\OneDrive\\Desktop\\Progetto\\NaviGator\\NaviGator.csproj"
               }
             }
           }
@@ -86,14 +86,14 @@
         }
       }
     },
-    "C:\\Users\\rober\\OneDrive\\Desktop\\Progetto\\Navigator\\NaviGator.csproj": {
+    "C:\\Users\\rober\\OneDrive\\Desktop\\Progetto\\NaviGator\\NaviGator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rober\\OneDrive\\Desktop\\Progetto\\Navigator\\NaviGator.csproj",
+        "projectUniqueName": "C:\\Users\\rober\\OneDrive\\Desktop\\Progetto\\NaviGator\\NaviGator.csproj",
         "projectName": "NaviGator",
-        "projectPath": "C:\\Users\\rober\\OneDrive\\Desktop\\Progetto\\Navigator\\NaviGator.csproj",
+        "projectPath": "C:\\Users\\rober\\OneDrive\\Desktop\\Progetto\\NaviGator\\NaviGator.csproj",
         "packagesPath": "C:\\Users\\rober\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rober\\OneDrive\\Desktop\\Progetto\\Navigator\\obj\\",
+        "outputPath": "C:\\Users\\rober\\OneDrive\\Desktop\\Progetto\\NaviGator\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\rober\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -2,11 +2,11 @@ namespace Dominio
 {
     public class Portata
     {
-        protected string nome;
-        protected bool disponibilita;
-        protected double prezzo;
-
+        private string nome;
+        private bool disponibilita;
+        private double prezzo;
         private int codice;
+        private int quantita;
 
         public Portata(string nome, bool disponibilita, double prezzo, int codice)
         {
@@ -21,7 +21,7 @@ namespace Dominio
             return nome;
         }
 
-        public bool GetDisponibilita()
+         public bool GetDisponibilita()
         {
             return disponibilita;
         }
@@ -48,6 +48,15 @@ namespace Dominio
             codice = value;
         }
 
+        public int GetQuantita()
+        {
+            return quantita;
+        }
+
+        public void SetQuantita(int value)
+        {
+            quantita = value;
+        }
 
         public override string ToString()
         {

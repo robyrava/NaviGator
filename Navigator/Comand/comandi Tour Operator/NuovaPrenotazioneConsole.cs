@@ -21,7 +21,7 @@ namespace Comand
 
         public void Visualizza()
         {
-            Console.WriteLine("\nINSERIMENTO NUOVA PRENOTAZIONE");
+            Console.WriteLine("INSERIMENTO NUOVA PRENOTAZIONE");
             Console.WriteLine(ElencoComandi.ElencoTuttiComandi(ElencoComandi.NUOVA_PRENOTAZIONE));
             Console.WriteLine("FAI LA TUA SCELTA");
         }

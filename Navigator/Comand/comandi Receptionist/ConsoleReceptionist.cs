@@ -2,27 +2,27 @@ using Dominio;
 
 namespace Comand
 {
-    public class CheckInOutConsole
+    public class ConsoleReceptionist
     {
         public void Start(NaviGator istanza)
         {
             Visualizza();
-            IComando comando = Parser.GetInstance().GetComando(ElencoComandi.CHECK_IN_OUT);
+            IComando comando = Parser.GetInstance().GetComando(ElencoComandi.RECEPTIONIST);
 
             while (!comando.GetCodiceComando().Equals("0"))
             {
                 comando.Esegui(istanza);
                 Console.WriteLine();
                 Visualizza();
-                comando = Parser.GetInstance().GetComando(ElencoComandi.CHECK_IN_OUT);
+                comando = Parser.GetInstance().GetComando(ElencoComandi.RECEPTIONIST);
             }
             comando.Esegui(istanza); // comando esci
         }
 
         public void Visualizza()
         {
-            Console.WriteLine("\n***MENU CHECK IN/OUT***");
-            Console.WriteLine(ElencoComandi.ElencoTuttiComandi(ElencoComandi.CHECK_IN_OUT));
+            Console.WriteLine("***RECEPTIONIST CONSOLE***");
+            Console.WriteLine(ElencoComandi.ElencoTuttiComandi(ElencoComandi.RECEPTIONIST));
             Console.WriteLine("FAI LA TUA SCELTA");
         }
     }

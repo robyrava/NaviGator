@@ -73,6 +73,8 @@ namespace Dominio
         {
             this.statoPrenotazione = statoPrenotazione;
         }
+
+        
         
         public IStato GetStatoPrenotazione()
         {
@@ -91,7 +93,7 @@ namespace Dominio
         
         public override string ToString()
         {
-            return $"codice: {GetCodice()}\ndata inizio: {GetDataInizio()}\ndata fine: {GetDataFine()}\n";
+            return $"codice prenotazione: {GetCodice()}\ndata inizio: {GetDataInizio()}\ndata fine: {GetDataFine()}\n";
         }
     }
 }

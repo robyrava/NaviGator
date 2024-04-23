@@ -58,13 +58,19 @@ namespace Comand
                     {
                         Console.WriteLine(s.ToString());
                     }
-                    Console.WriteLine("Inserisci il codice del servizio da aggiungere");
+                    Console.WriteLine("Inserisci il codice del servizio da aggiungere (0 per annullare)");
                     //Verifico formato codice 
                     string codiceServizio = Parser.GetInstance().Read();
                     while (!Validatore.VerificaCodice(codiceServizio))
                     {
                         Console.WriteLine("Errore: Codice servizio non valido");
                         codiceServizio = Parser.GetInstance().Read();
+                    }
+                    //Se il codice è 0 annulla la prenotazione in corso
+                    if (codiceServizio.Equals("0"))
+                    {
+                        Console.WriteLine("\nRegistrazione servizio annullata!");
+                        return;
                     }
                         
                     bool servizioTrovato = false;
@@ -99,7 +105,7 @@ namespace Comand
                     }
                     istanza.AnnullaPrenotazioneInCorso();
                     if(!servizioTrovato)
-                        Console.WriteLine("Codice servizio non valido");
+                        Console.WriteLine("\nCodice servizio non valido");
                 }
             }
             else

@@ -2,26 +2,28 @@ namespace Dominio
 {
     public class Ordine
     {
-        private List<QuantitaPortata> quantitaPortate;
+        private List<Portata> elencoPortate;
         private double subTotale;
 
         public Ordine()
         {
-            quantitaPortate = new List<QuantitaPortata>();
+            elencoPortate = new List<Portata>();
         }
 
-        public List<QuantitaPortata> GetQuantitaPortate() 
+        public List<Portata> GetElencoPortate() 
         {
-            return quantitaPortate;
+            return elencoPortate;
         }
-        public void SetQuantitaPortata(Portata p, int q)
+        public void AggiungiPortata(Portata p)
         {
-            QuantitaPortata qp = new QuantitaPortata(p, q);
-            quantitaPortate.Add(qp);
+            elencoPortate.Add(p);
         }
 
         public double GetSubTotale() {
             return subTotale;
+        }
+        public void SetSubTotale(double prezzo) {
+            subTotale += prezzo;
         }
         
     }

@@ -2,10 +2,10 @@ using Dominio;
 
 namespace Comand
 {
-    public class ComandoServizioCabina : IComando
+    public class ComandoRegistraServizioCabina : IComando
     {
-        public static readonly string codiceComando = "2";
-        public static readonly string descrizioneComando = "Servizio in Cabina";
+        public static readonly string codiceComando = "4";
+        public static readonly string descrizioneComando = "Registra servizio cabina";
 
         public string GetCodiceComando()
         {
@@ -19,9 +19,10 @@ namespace Comand
 
         public void Esegui(NaviGator istanza)
         {
-            ConsoleServizioCabina nsc= new ConsoleServizioCabina();
-            nsc.Start(istanza);
+            string msg;
+
+            msg = istanza.RegistraServizioCabina();
+            Console.WriteLine(msg);
         }
     }
-
 }

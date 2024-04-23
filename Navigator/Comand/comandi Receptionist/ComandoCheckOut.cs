@@ -20,7 +20,7 @@ namespace Comand
         public void Esegui(NaviGator istanza)
         {
             Console.WriteLine("   Inserisci il codice fiscale del cliente: ");
-            string codiceCliente = Console.ReadLine();
+            string codiceCliente = Parser.GetInstance().Read();
             
             //verifica se il cliente ha prenotazioni in stato "Check-in"
             bool clientePresente = false;
@@ -36,7 +36,7 @@ namespace Comand
             if (clientePresente)
             {
                 Console.WriteLine("   Inserisci il codice della prenotazione di cui effettuare il check-out: ");
-                string codicePrenotazione = Console.ReadLine();
+                string codicePrenotazione = Parser.GetInstance().Read();
                 
                 bool codiceCorretto = false;
                 foreach (var p in istanza.MostraPrenotazioneCliente(codiceCliente))

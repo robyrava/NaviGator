@@ -7,7 +7,7 @@ namespace Dominio
         private double prezzo;
         private bool disponibile;
 
-        public Cabina(){}
+        //public Cabina(){}
         public Cabina(int codice, string tipo, double prezzo)
         {
             this.codice = codice;
@@ -48,7 +48,7 @@ namespace Dominio
 
         public override string ToString()
         {
-            return $"codice: {codice}\ttipo: {tipo}\tprezzo: {prezzo}";
+            return $"codice cabina: {codice}\ttipo: {tipo}\tprezzo: {prezzo}$";
         }
     }
 }

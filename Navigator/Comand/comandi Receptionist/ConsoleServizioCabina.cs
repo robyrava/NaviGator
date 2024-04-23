@@ -2,7 +2,7 @@ using Dominio;
 
 namespace Comand
 {
-    public class ServizioCabinaConsole
+    public class ConsoleServizioCabina
     {
         public void Start(NaviGator istanza)
         {

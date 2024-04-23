@@ -3,7 +3,7 @@ using Validazioni;
 
 namespace Comand
 {
-    public class ComandoAssociaServizioCabina : IComando
+    public class ComandoCreaServizioCabina : IComando
     {
         public static readonly string codiceComando = "1";
         public static readonly string descrizioneComando = "Associa cabina";
@@ -29,23 +29,10 @@ namespace Comand
                 return;
             }
 
-            bool esiste = false;
-            
-            //verifico se la cabina esiste (è occupata)
-            foreach (Cabina c in istanza.GetCabine())
-            {
-                if (int.Parse(codice).Equals(c.GetCodice()))
-                {
-                    DateTime data = DateTime.Now;
-                    istanza.CreaServizioCabina(int.Parse(codice), data);
-                    esiste = true;
-                    break;
-                }
-            }
-            if (esiste)
+            if (istanza.CreaServizioCabina(int.Parse(codice), DateTime.Now))
                 Console.WriteLine("Cabina associata con successo!");
             else
-                Console.WriteLine("Errore: la cabina scelta non esiste");
+                Console.WriteLine("Errore: la cabina non risulta prenotata.");
         }
     }
 

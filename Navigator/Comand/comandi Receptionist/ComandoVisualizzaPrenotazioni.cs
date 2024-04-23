@@ -5,7 +5,7 @@ namespace Comand
     public class ComandoVisualizzaPrenotazioni : IComando
     {
         public static readonly string codiceComando = "3";
-        public static readonly string descrizioneComando = "Visualizza prenotazioni";
+        public static readonly string descrizioneComando = "Visualizza clienti";
 
         public string GetCodiceComando()
         {
@@ -19,7 +19,7 @@ namespace Comand
 
         public void Esegui(NaviGator istanza)
         {
-            Console.WriteLine("Prenotazioni in corso:");
+            Console.WriteLine("Utenti a bordo:");
             bool isPrenotazioni = false;
             bool haServizi = false;
             int i = 0;
@@ -50,7 +50,7 @@ namespace Comand
                 }
             }
             if (!isPrenotazioni)
-                Console.WriteLine("Nessuna prenotazione in corso");
+                Console.WriteLine("Nessun utente a bordo della nave");
         }
     }
 

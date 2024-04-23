@@ -25,7 +25,7 @@ namespace Comand
             string input, risposta;
 
             //Stampo il menu delle portate
-            foreach(Portata p in istanza.MostraPortate())
+            foreach(Portata p in istanza.GetElencoPortate())
             {
                 Console.WriteLine(p.ToString() + $"\tDisponibilità: {p.GetDisponibilita()}");
             }
@@ -40,7 +40,7 @@ namespace Comand
             }
 
             //verifico che il nome non sia già presente tra le portate disponibili
-            foreach(Portata p in istanza.GetPortateDisponibili())
+            foreach(Portata p in istanza.MostraPortateDisponibili())
             {
                 if(p.GetNome().Equals(nome,StringComparison.OrdinalIgnoreCase))
                 {

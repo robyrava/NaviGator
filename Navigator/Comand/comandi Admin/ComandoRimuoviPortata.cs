@@ -24,7 +24,7 @@ namespace Comand
             bool esito;
 
             //Stampo il menu delle portate
-            foreach(Portata p in istanza.MostraPortate())
+            foreach(Portata p in istanza.GetElencoPortate())
             {
                 Console.WriteLine(p.ToString() + $"\tDisponibilità: {p.GetDisponibilita()}");
             }

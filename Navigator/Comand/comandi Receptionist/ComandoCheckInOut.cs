@@ -19,7 +19,7 @@ namespace Comand
 
         public void Esegui(NaviGator istanza)
         {
-            CheckInOutConsole ch = new CheckInOutConsole();
+            ConsoleCheckInOut ch = new ConsoleCheckInOut();
             ch.Start(istanza);
         }
     }

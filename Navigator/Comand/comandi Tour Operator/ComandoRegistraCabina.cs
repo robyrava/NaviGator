@@ -40,14 +40,14 @@ namespace Comand
             string dataF = Parser.GetInstance().Read();
             while(!Validatore.VerificaDataFine(dataF,dataI))
             {
-                Console.WriteLine("   Data non valida!\nRicorda le crociere terminano di Sabato\nInserisci data fine(YYYY-MM-dd): ");
+                Console.WriteLine("   Data non valida!\n   Ricorda le crociere terminano di Sabato\nInserisci data fine(YYYY-MM-dd): ");
                 dataF = Parser.GetInstance().Read();
             }
 
             //Verifico disponibilità cabine
             if (!istanza.GetCabineDisponibili(tipologiaCabina, DateTime.Parse(dataI), DateTime.Parse(dataF)).Any())
             {
-                Console.WriteLine($"Nessuna cabina del tipo {tipologiaCabina} disponibile per questa data");
+                Console.WriteLine($"\nNessuna cabina del tipo {tipologiaCabina} disponibile per questa data");
             }
             else
             {

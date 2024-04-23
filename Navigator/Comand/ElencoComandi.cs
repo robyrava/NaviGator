@@ -54,8 +54,11 @@ namespace Comand
 
         private static readonly Dictionary<string, string> comandiValidiServizioCabina = new Dictionary<string, string>
         {
-            {ComandoAssociaServizioCabina.codiceComando, ComandoAssociaServizioCabina.descrizioneComando},
+            {ComandoCreaServizioCabina.codiceComando, ComandoCreaServizioCabina.descrizioneComando},
+            {ComandoMostraPortate.codiceComando,ComandoMostraPortate.descrizioneComando},
             {ComandoSelezionaPortate.codiceComando,ComandoSelezionaPortate.descrizioneComando},
+            {ComandoRegistraServizioCabina.codiceComando, ComandoRegistraServizioCabina.descrizioneComando}, 
+            {ComandoResetServizioCabina.codiceComando, ComandoResetServizioCabina.descrizioneComando},           
             { ComandoIndietro.codiceComando, ComandoIndietro.descrizioneComando }
         };
 

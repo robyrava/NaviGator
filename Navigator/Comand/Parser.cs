@@ -78,9 +78,15 @@ namespace Comand
                 if(console == ElencoComandi.SERVIZIO_CABINA)
                 {
                     if(parola.Equals("1"))
-                        comando = new ComandoAssociaServizioCabina();
+                        comando = new ComandoCreaServizioCabina();
                     if(parola.Equals("2"))
+                        comando = new ComandoMostraPortate();
+                    if(parola.Equals("3"))
                         comando = new ComandoSelezionaPortate();
+                    if(parola.Equals("4"))
+                        comando = new ComandoRegistraServizioCabina();
+                    if(parola.Equals("5"))
+                        comando = new ComandoResetServizioCabina();
                 }
 
                 if(console == ElencoComandi.CHECK_IN_OUT)
@@ -99,12 +105,6 @@ namespace Comand
                         comando = new ComandoGestisciServizi();
                     if(parola.Equals("3"))
                         comando=new ComandoGestisciCabine();
-                /** 
-                    if(parola.Equals("3"))
-                        comando = new ComandoGestisciPrezzoCabine();
-                    if(parola.Equals("4"))
-                        comando = new ComandoGestisciCabine();
-                */
                 }
                 if(console == ElencoComandi.GESTIONE_PORTATA)
                 {

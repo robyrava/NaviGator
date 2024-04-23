@@ -46,7 +46,7 @@ namespace Comand
             }
             else
             {
-                Console.WriteLine("\nErrore: cabina non presentemtra le cabine in manutenzione!");
+                Console.WriteLine("\nErrore: cabina non presente tra le cabine in manutenzione!");
             }
         }
     }

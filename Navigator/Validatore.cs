@@ -92,5 +92,30 @@ namespace Validazioni
             return true;
         }
 
+        public static bool VerificaTelefono(string telefono)
+        {
+            // Verifica che il numero di telefono sia composto da 10 cifre
+            if (!System.Text.RegularExpressions.Regex.IsMatch(telefono, @"^\d{10}$"))
+                return false;
+
+            return true;
+        }
+        public static bool VerificaCarta(string carta)
+        {
+            // Verifica che il numero della carta sia composto da 16 cifre
+            if (!System.Text.RegularExpressions.Regex.IsMatch(carta, @"^\d{16}$"))
+                return false;
+
+            return true;
+        }
+
+        public static bool VerificaDocumento(string documento)
+        {
+            // Verifica che il documento sia composto da 9 cifre: primi due caratteri lettere, seguenti 5 caratteri numeri, ultimi due caratteri lettere
+            if (!System.Text.RegularExpressions.Regex.IsMatch(documento, @"^[a-zA-Z]{2}\d{5}[a-zA-Z]{2}$"))
+                return false;
+            return true;
+        }
+
     }
 }

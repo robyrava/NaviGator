@@ -19,7 +19,7 @@ namespace Comand
 
         public void Esegui(NaviGator istanza)
         {
-            ReceptionistConsole rc = new ReceptionistConsole();
+            ConsoleReceptionist rc = new ConsoleReceptionist();
             rc.Start(istanza);
         }
     }

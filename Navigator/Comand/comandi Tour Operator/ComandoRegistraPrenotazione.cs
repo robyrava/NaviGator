@@ -23,7 +23,7 @@ namespace Comand
             if(istanza.RegistraPrenotazione())
             {
                 Console.WriteLine($"\nIl cliente: {istanza.GetPrenotazioneInCorso().GetCliente().GetNome()} {istanza.GetPrenotazioneInCorso().GetCliente().GetCognome()}\nha effettuato la prenotazione dal {istanza.GetPrenotazioneInCorso().GetDataInizio()} al {istanza.GetPrenotazioneInCorso().GetDataFine()}" 
-                + $"\nDetagli Cabina:\n {istanza.GetPrenotazioneInCorso().GetCabina().ToString()}");
+                + $"\nDetagli Cabina:\n{istanza.GetPrenotazioneInCorso().GetCabina().ToString()}");
                 
                 //annullo prenotazione in corso
                 istanza.AnnullaPrenotazioneInCorso() ;

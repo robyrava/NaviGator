@@ -39,27 +39,27 @@ namespace Comand
             Console.WriteLine("\n   Codice fiscale: ");
             string codiceCliente = Parser.GetInstance().Read();
 
-            Console.WriteLine("\n   Documento: ");
+            Console.WriteLine("\n   Documento(es: AX12345AA): ");
             string documentoCliente = Parser.GetInstance().Read();
             while(!Validatore.VerificaDocumento(documentoCliente))
             {
-                Console.WriteLine("\n   Errore: Documento non valido. Inserire un documento valido: ");
+                Console.WriteLine("\n   Errore: Documento non valido. Inserire un documento valido(es: AX12345AA): ");
                 documentoCliente = Parser.GetInstance().Read();
             }
 
-            Console.WriteLine("\n   Numero telefono: ");
+            Console.WriteLine("\n   Numero telefono(es 3312323232): ");
             string numeroTelCliente = Parser.GetInstance().Read();
             while(!Validatore.VerificaTelefono(numeroTelCliente))
             {
-                Console.WriteLine("\n   Errore: Numero di telefono non valido. Inserire un numero di telefono valido: ");
+                Console.WriteLine("\n   Errore: Numero di telefono non valido. Inserire un numero di telefono valido(es 3312323232): ");
                 numeroTelCliente = Parser.GetInstance().Read();
             }
 
-            Console.WriteLine("\n   Numero carta: ");
+            Console.WriteLine("\n   Numero carta(es: 1234123412341234): ");
             string numeroCartaCliente = Parser.GetInstance().Read();
             while(!Validatore.VerificaCarta(numeroCartaCliente))
             {
-                Console.WriteLine("\n   Errore: Numero di carta non valido. Inserire un numero di carta valido: ");
+                Console.WriteLine("\n   Errore: Numero di carta non valido. Inserire un numero di carta valido(es: 1234123412341234): ");
                 numeroCartaCliente = Parser.GetInstance().Read();
             }
             

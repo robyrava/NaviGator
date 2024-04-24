@@ -527,7 +527,7 @@ namespace Dominio
             
             if(!trovato)
             {
-                GetListaPeriodiVariazione().Add(new PeriodoVariazione(dataI, dataF, variazione));
+                listaPeriodiVariazione.Add(new PeriodoVariazione(dataI, dataF, variazione));
                 return true;
             }
 

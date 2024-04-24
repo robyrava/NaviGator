@@ -32,7 +32,7 @@ namespace Comand
             //Stampo le portate acquistate nel servizio cabina
             Console.WriteLine("\nPortate servizio in cabina acquistate:");
             if(!istanza.MostraPortateAcquistate())
-                Console.WriteLine("\nNessun servizio acquistato");
+                Console.WriteLine("\nNessun portata ordinata");
 
             //Stampo i servizi aggiuntivi acquistati
             Console.WriteLine("\n Servizi acquistati:");

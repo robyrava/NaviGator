@@ -21,7 +21,13 @@ namespace Comand
         public void Esegui(NaviGator istanza)
         {
             List<int> codiciValidi = new List<int>();
-        
+
+            if(istanza.MostraCabineInManutenzione().Count == 0)
+            {
+                Console.WriteLine("\nNon ci sono cabine sottoposte a manutenzione!");
+                return;
+            }
+
             //Mostro le cabine disabilitate
             Console.WriteLine("\nCabine sottopposte a manutenzione: ");
             foreach (Cabina c in istanza.MostraCabineInManutenzione())

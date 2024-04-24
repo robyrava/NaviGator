@@ -47,7 +47,7 @@ namespace Comand
             string var = Parser.GetInstance().Read();
             while (!Validatore.VerificaPrezzo(var, true))
             {
-                Console.WriteLine("   Pre3zzo non valido: deve essere un valore intero\nInserisci la variazione di prezzo: ");
+                Console.WriteLine("   Prezzo non valido: deve essere un valore intero\nInserisci la variazione di prezzo: ");
                 var = Parser.GetInstance().Read();
             }
 
